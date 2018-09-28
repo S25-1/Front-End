@@ -1,8 +1,9 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-
 import { AppComponent } from 'src/app/app.component';
 
+import { NAVLIST } from './navList';
+// import { NavListItem } from './navListItem';
 
 @Component({
   selector: 'app-nav',
@@ -10,13 +11,14 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
+  navlist = NAVLIST;
+
+
   // Import global vars
   NewAppComponent: AppComponent = new AppComponent();
 
   // Navigation JS stuff
   mobileQuery: MediaQueryList;
-
-  fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
 
   private _mobileQueryListener: () => void;
 

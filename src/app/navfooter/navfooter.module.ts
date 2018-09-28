@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from '../material/material.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule,
   ],
   declarations: [
     NavComponent,
-    FooterComponent
+    FooterComponent,
   ],
   exports: [
     NavComponent,

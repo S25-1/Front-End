@@ -1,7 +1,7 @@
 import { NavListItem } from './navListItem';
 
 export const NAVLIST: NavListItem[] = [
-    {Id: 1, Name: 'Home', Url: '/'},
-    {Id: 2, Name: 'Login', Url: '/login'},
-    {Id: 3, Name: 'Vacature Toevoegen', Url: '/addvacancy'},
+    { id: 1, name: 'Home', url: '/' },
+    { id: 2, name: 'Login', url: '/login' },
+    { id: 3, name: 'Vacature Toevoegen', url: '/addvacancy' },
 ];

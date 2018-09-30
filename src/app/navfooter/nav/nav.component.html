@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
      <a id="nav-title-text" mat-button routerLink=''>
        <h1 class="nav-app-name" >
-          {{ NewAppComponent.Title }}
+          {{ newAppComponent.title }}
         </h1>
       </a> 
   </mat-toolbar>
@@ -13,7 +13,7 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a *ngFor="let navItem of navlist" mat-list-item routerLink="{{ navItem.Url }}" >{{ navItem.Name }}</a>
+        <a *ngFor="let navItem of navlist" mat-list-item routerLink="{{ navItem.url }}" >{{ navItem.name }}</a>
       </mat-nav-list>
     </mat-sidenav>
 

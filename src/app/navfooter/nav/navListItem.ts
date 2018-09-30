@@ -1,5 +1,5 @@
 export class NavListItem {
-    Id: number;
-    Name: string;
-    Url: string;
+  id: number;
+  name: string;
+  url: string;
 }

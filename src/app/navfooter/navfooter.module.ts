@@ -17,7 +17,7 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   exports: [
     NavComponent,
-    FooterComponent
-  ]
+    FooterComponent,
+  ],
 })
 export class NavfooterModule { }

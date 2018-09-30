@@ -8,7 +8,7 @@ describe('AddVacancyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddVacancyComponent ]
+      declarations: [AddVacancyComponent],
     })
     .compileComponents();
   }));

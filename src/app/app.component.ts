@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 
 export class AppComponent {
-  Title: String;
+  title: String;
 
   constructor() {
-    this.Title = 'Job\'s Test Environment :)';
+    this.title = 'Job\'s Test Environment :)';
   }
 }

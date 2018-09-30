@@ -4,7 +4,7 @@ export class Vacancy {
         public date: Date,
         public location: string,
 
-        public job: test,
+        public job: jobTypes,
 
         public description: string,
 
@@ -12,7 +12,7 @@ export class Vacancy {
     ) {}
 }
 
-enum test {
+enum jobTypes {
     StockClerk = 'stock clerk',
     Cashier = 'cashier',
     Manager = 'manager',

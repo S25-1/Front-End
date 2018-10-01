@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UploadPictureComponent implements OnInit {
   @Input() id: string;
 
-  imageSrc: string;
+  imageSrc: string = 'assets/app-vacancy-picture-template.png';
   onFileChanged(event) {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -20,6 +20,11 @@ export class UploadPictureComponent implements OnInit {
     }
   }
 
+  submitUpload(event) {
+    // Stop form submit
+    // event.preventDefault();
+    // document.querySelector('#' + this.id).click();
+  }
   constructor() { }
 
   ngOnInit() {}

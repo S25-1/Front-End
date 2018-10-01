@@ -1,5 +1,17 @@
-<input type="file" 
-  id="{{ id }}"
-  (change)="onFileChanged($event);">
+<div class="wrapper">
+  <div class="picture-showcase"
+  [ngStyle]="{ 'background-image': 'url(' + imageSrc + ')'}"
+    ></div>
 
-  <img id="blah" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
+  <label>
+      <a color="primary" mat-raised-button class="upload-picture-button">
+        Select Picture
+      </a>
+      
+      <input type="file" 
+        id="{{ id }}"
+        (change)="onFileChanged($event);" 
+        hidden
+        accept="image/*" >
+    </label>
+</div> 

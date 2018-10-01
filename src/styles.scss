@@ -1,5 +1,14 @@
+// Import Angular Material Styling
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+// Import Bootstrap grid
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid"; 
+
+// Import own variables
 @import 'assets/colours';
 @import 'assets/variables';
 

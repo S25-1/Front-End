@@ -36,3 +36,7 @@ h1.nav-app-name {
   align-items: center;
   margin-left: 16px; //padding of toolbar to keep hamburger styling consitent
 }
+
+.mat-drawer-content {
+  display: unset !important;
+}

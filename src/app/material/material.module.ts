@@ -4,7 +4,7 @@ import { CdkTreeModule } from '@angular/cdk/tree';
 
 // Angular Material Components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCheckboxModule, MatButtonModule } from '@angular/material';
+import { MatCheckboxModule, MatButtonModule, MatNativeDateModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -70,6 +70,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatNativeDateModule,
   ],
 })
 export class MaterialModule { }

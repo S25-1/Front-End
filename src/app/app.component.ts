@@ -10,6 +10,6 @@ export class AppComponent {
   title: String;
 
   constructor() {
-    this.title = 'Job\'s Test Environment :)';
+    this.title = 'CGI Angular Frontend';
   }
 }

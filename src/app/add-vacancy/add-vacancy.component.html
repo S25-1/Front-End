@@ -1,15 +1,30 @@
 <form action="">
   <div class="row align-items-center">
-      <div class="col-10 col-md-4">
+      <div class="col-10 col-md-2">
           <app-upload-picture id="picture"></app-upload-picture>
       </div>
-      <div class="col-10 col-md-6">
+      <div class="upload-picture-input-devider"></div>
+      <div class="col-10 col-md-3">
         <mat-form-field appearance="standard">
           <mat-label>Name</mat-label>
           <input matInput>
         </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="dateOfBirthPicker" placeholder="Date of Birth" [min]="minDate" [max]="maxDate">
+          <mat-datepicker-toggle matSuffix [for]="dateOfBirthPicker"></mat-datepicker-toggle>
+          <mat-datepicker #dateOfBirthPicker [touchUi]="isMobile"></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10 col-md-5">
         <mat-form-field appearance="standard">
-          <mat-label>Birthdate</mat-label>
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="tel">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Home Address</mat-label>
           <input matInput>
         </mat-form-field>
       </div>

@@ -2,3 +2,11 @@
 .mat-form-field {
     display: unset;
 }
+
+// At medium screen width
+@media (min-width: 720px) {
+    .upload-picture-input-devider  {
+        width: 5vw;
+    }
+}
+    

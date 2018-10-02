@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AddVacancyModule } from './add-vacancy/add-vacancy.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { AddVacancyModule } from './add-vacancy/add-vacancy.module';
     BrowserAnimationsModule,
     NavfooterModule,
     AddVacancyModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],

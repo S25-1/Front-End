@@ -1,5 +1,7 @@
 <form action="">
-  <div class="row align-items-center">
+  <div class="row">
+    <!-- Persoonsgegevens -->
+    <div class="col-10 col-md-5 row">
       <div class="col-10 col-md-2">
           <app-upload-picture id="picture"></app-upload-picture>
       </div>
@@ -15,25 +17,25 @@
           <mat-datepicker #dateOfBirthPicker [touchUi]="isMobile"></mat-datepicker>
         </mat-form-field>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-10 col-md-5">
-        <mat-form-field appearance="standard">
-          <mat-label>Phone Number</mat-label>
-          <input matInput type="tel">
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-label>Home Address</mat-label>
-          <input matInput>
-        </mat-form-field>
+      
+    
+      <div class="row">
+        <div class="col-10 col-md-5">
+          <mat-form-field appearance="standard">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel">
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Home Address</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
       </div>
     </div>
-</form>
 
-<!-- <mat-form-field appearance="standard">
-  <mat-label>Standard form field</mat-label>
-  <input matInput placeholder="Placeholder">
-  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-  <mat-hint>Hint</mat-hint>
-</mat-form-field> -->
+    <!-- Gegevens Werkgever -->
+    <div class="col-10 col-md-5 row">
+      
+    </div>
+  </div>
+</form>

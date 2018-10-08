@@ -37,10 +37,21 @@ h1.nav-app-name {
   margin-left: 16px; //padding of toolbar to keep hamburger styling consitent
 }
 
-.mat-drawer-content {
-  // overflow: hidden;
+.container {
+  // padding-top: 15px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  margin: 15px 10vw;
 }
 
-.container {
-  padding-top: 15px;
+// Less whitespace for mobile viewports to make sure all content is visible 
+@media (max-width: 700px) {
+  .container {
+      width: 90vw;
+      margin: 15px 5vw;
+  }
 }

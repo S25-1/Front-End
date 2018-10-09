@@ -17,7 +17,7 @@
 
 // https://nodejs.org/docs/latest/api/process.html#process_process_argv
 // Pass on 1 parameter in launch values
-const SITE_BASE_HREF = process.argv[2];
+const SITE_BASE_HREF = process.argv[2] | ""; // If base href is unset use blank string
 
 // console.log(SITE_BASE_HREF);
 

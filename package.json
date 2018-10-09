@@ -8,7 +8,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build": "ng build --prod && node build/fix-sw",
-    "build-live": "ng build --prod --base-href https://job.cgi.fontys.me/ --output-path=./dist/out && node build/fix-sw  https://job.cgi.fontys.me/"
+    "build-live": "ng build --prod --output-path=./dist/out && node build/fix-sw",
+    "build-live-with-href": "ng build --prod --base-href https://example.com/ --output-path=./dist/out && node build/fix-sw  https://example.com/"
   },
   "private": true,
   "dependencies": {

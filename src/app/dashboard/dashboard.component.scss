@@ -1,14 +1,13 @@
 // WRAPPER STYLING 
-.center-container {
+.grid-container {
     display: flex;
+    // width: 80vw;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-}
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 250px);
-    grid-gap: 30px;
+    > * {
+        margin: 15px;
+    }
 }
 
 

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-add-vacancy',
-  templateUrl: './add-vacancy.component.html',
-  styleUrls: ['./add-vacancy.component.scss'],
+  selector: 'app-add-employee',
+  templateUrl: './add-employee.component.html',
+  styleUrls: ['./add-employee.component.scss'],
 })
-export class AddVacancyComponent implements OnInit {
+export class AddEmployeeComponent implements OnInit {
 
   // Set minimal values for date input
   minDate = new Date(1900, 0, 1);

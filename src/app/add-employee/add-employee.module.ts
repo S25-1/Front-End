@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddVacancyComponent } from './add-vacancy.component';
+import { AddEmployeeComponent } from './add-employee.component';
 import { MaterialModule } from '../material/material.module';
 import { UploadPictureComponent } from './upload-picture/upload-picture.component';
 
@@ -9,9 +9,9 @@ import { UploadPictureComponent } from './upload-picture/upload-picture.componen
     CommonModule,
     MaterialModule,
   ],
-  declarations: [AddVacancyComponent, UploadPictureComponent],
+  declarations: [AddEmployeeComponent, UploadPictureComponent],
   exports: [
-    AddVacancyComponent,
+    AddEmployeeComponent,
   ],
 })
-export class AddVacancyModule { }
+export class AddEmployeeModule { }

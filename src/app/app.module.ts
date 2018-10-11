@@ -8,7 +8,7 @@ import { NavfooterModule } from './navfooter/navfooter.module';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { AddVacancyModule } from './add-vacancy/add-vacancy.module';
+import { AddEmployeeModule } from './add-employee/add-employee.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -23,7 +23,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     NavfooterModule,
-    AddVacancyModule,
+    AddEmployeeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],

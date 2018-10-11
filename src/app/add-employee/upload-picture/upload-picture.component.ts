@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UploadPictureComponent implements OnInit {
   @Input() id: string;
 
-  imageSrc: string = 'assets/app-vacancy-picture-template.png';
+  imageSrc: string = 'assets/app-employee-picture-template.png';
   onFileChanged(event) {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];

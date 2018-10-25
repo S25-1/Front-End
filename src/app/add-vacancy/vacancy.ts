@@ -10,12 +10,24 @@ export class Vacancy {
     return JSON.parse(`
       { "jobTypes" : [
         {
-          "value" : "StockClerk",
+          "value"       : "StockClerk",
           "placeholder" :  "stock clerk"
         },
         {
-          "value" : "Cashier",
-          "placeholder"  : "cashier"
+          "value"       : "Cashier",
+          "placeholder" : "cashier"
+        },
+        {
+          "value"       : "Manager",
+          "placeholder" : "manager"
+        },
+        {
+          "value"       : "GreenGrocer",
+          "placeholder" : "greengrocer"
+        },
+        {
+          "value"       : "SecurityGuard",
+          "placeholder" : "security guard"
         }
       ]
     }`);

@@ -1,0 +1,48 @@
+<h1>Add a New Vacancy</h1>
+<form action="">
+  <div class="left-of-picture">
+    <mat-form-field appearance="standard">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="newVacancy.name" name="name">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Begin Date" [min]="minDate" [max]="maxDate" (dateInput)="newVacancy.beginDate = $event.value">
+      <mat-datepicker-toggle matSuffix [for]="vacancyBeginDate"></mat-datepicker-toggle>
+      <mat-datepicker #vacancyBeginDate [touchUi]="isMobile"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="vacancyEndDate" placeholder="End Date" [min]="minDate" [max]="maxDate" (dateInput)="newVacancy.endDate = $event.value">
+      <mat-datepicker-toggle matSuffix [for]="vacancyEndDate"></mat-datepicker-toggle>
+      <mat-datepicker #vacancyEndDate [touchUi]="isMobile"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Job Type">
+        <mat-option *ngFor="let jobType of jobTypeItems.jobTypes" [value]="jobType.value">
+          {{ jobType.placeholder | titlecase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+<table>
+  <tr>
+    <th>Variables</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td> {{ newVacancy.name }} </td>
+  </tr>
+  <tr>
+    <td>beginDate</td>
+    <td> {{ newVacancy.beginDate }} </td>
+  </tr>
+  <tr>
+    <td>endDate</td>
+    <td> {{ newVacancy.endDate }} </td>
+  </tr>
+</table>

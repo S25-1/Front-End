@@ -5,6 +5,7 @@ export class Vacancy {
   beginDate: string;
   endDate: string;
   description: string;
+  jobType: JobType;
 
   getJobTypes(): JobType[] {
     return JSON.parse(`

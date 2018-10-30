@@ -18,6 +18,7 @@ export class AddVacancyComponent implements OnInit {
   endTime: string;
 
   jobType: string;
+
   ngOnInit() {
   }
 

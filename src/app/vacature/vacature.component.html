@@ -1,13 +1,13 @@
 <span><h1>Open Vacatures</h1></span>
 <div class="grid-container">
-<a *ngFor="let vacatureItem of navlist" (click)="openDialog()" class="papers" >
+<a *ngFor="let vacatureItem of navlist" (click)="openDialog(vacatureItem.taak, vacatureItem.datum, vacatureItem.ervaring)" class="papers" >
     <div class="top-div">
         <img class="image" src="\assets\calender.svg">
         <span>
             <b>{{ vacatureItem.taak }}</b>
         </span>
         <span style="text-align: right;">
-            Today
+            {{ vacatureItem.datum }}
           </span>
     </div>
     <div class="bottom-div">

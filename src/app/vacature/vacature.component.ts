@@ -15,11 +15,11 @@ export class VacatureComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
+  openDialog(job, date, experience): void {
     const dialogRef = this.dialog.open(VacatureDialog, {
       height: '400px',
       width: '600px',
-      data: { name: 'test' },
+      data: { Job: job, Date: date, Experience: experience },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -35,5 +35,7 @@ export class VacatureComponent {
   templateUrl: 'vacature-dialog.html',
 })
 export class VacatureDialog {
-  // constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(
+    public dialogRef: MatDialogRef<VacatureDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
 }

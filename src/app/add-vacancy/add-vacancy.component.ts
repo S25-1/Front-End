@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vacancy } from './vacancy';
+import { Vacancy, JobType } from './vacancy';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -17,6 +17,7 @@ export class AddVacancyComponent implements OnInit {
   endDate: string;
   endTime: string;
 
+  jobType: string;
   ngOnInit() {
   }
 

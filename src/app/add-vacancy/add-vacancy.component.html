@@ -19,8 +19,8 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Job Type">
-        <mat-option *ngFor="let jobType of jobTypeItems" [value]="jobType.value">
+      <mat-select placeholder="Job Type" [(value)]="newVacancy.jobType">
+        <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
           {{ jobType.placeholder | titlecase }}
         </mat-option>
       </mat-select>
@@ -44,5 +44,9 @@
   <tr>
     <td>endDate</td>
     <td> {{ newVacancy.endDate }} </td>
+  </tr>
+  <tr>
+    <td>jobType</td>
+    <td> {{ newVacancy.jobType }}</td>
   </tr>
 </table>

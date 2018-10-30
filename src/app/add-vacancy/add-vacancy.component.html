@@ -7,20 +7,20 @@
     </mat-form-field>
     
     <mat-form-field>
-      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Begin Date" [min]="minDate" [max]="maxDate" (dateInput)="newVacancy.beginDate = $event.value">
+      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Begin Date" (dateInput)="newVacancy.beginDate = $event.value">
       <mat-datepicker-toggle matSuffix [for]="vacancyBeginDate"></mat-datepicker-toggle>
-      <mat-datepicker #vacancyBeginDate [touchUi]="isMobile"></mat-datepicker>
+      <mat-datepicker #vacancyBeginDate></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="vacancyEndDate" placeholder="End Date" [min]="minDate" [max]="maxDate" (dateInput)="newVacancy.endDate = $event.value">
+      <input matInput [matDatepicker]="vacancyEndDate" placeholder="End Date" (dateInput)="newVacancy.endDate = $event.value">
       <mat-datepicker-toggle matSuffix [for]="vacancyEndDate"></mat-datepicker-toggle>
-      <mat-datepicker #vacancyEndDate [touchUi]="isMobile"></mat-datepicker>
+      <mat-datepicker #vacancyEndDate></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field>
       <mat-select placeholder="Job Type">
-        <mat-option *ngFor="let jobType of jobTypeItems.jobTypes" [value]="jobType.value">
+        <mat-option *ngFor="let jobType of jobTypeItems" [value]="jobType.value">
           {{ jobType.placeholder | titlecase }}
         </mat-option>
       </mat-select>

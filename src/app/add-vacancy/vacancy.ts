@@ -30,7 +30,8 @@ export class Vacancy {
           "placeholder" : "security guard"
         }
       ]
-    }`);
+    }`).jobTypes;
+    // This is a bit hacky but it is easy for testing
   }
 }
 

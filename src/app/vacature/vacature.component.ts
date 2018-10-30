@@ -4,10 +4,12 @@ import { AppComponent } from 'src/app/app.component';
 
 import { VACATURELIST } from './vacatureList';
 
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 @Component({
-  selector: 'app-Vacature',
-  templateUrl: './Vacature.component.html',
-  styleUrls: ['./Vacature.component.scss'],
+  selector: 'app-vacature',
+  templateUrl: './vacature.component.html',
+  styleUrls: ['./vacature.component.scss'],
 })
 export class VacatureComponent {
   navlist = VACATURELIST;
@@ -25,4 +27,32 @@ export class VacatureComponent {
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
   }
+}
+
+export class DialogComponent {
+
+  constructor(public dialog: MatDialog) {}
+
+  public openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponentDialog, {
+      width: '250px',
+    });
+  }
+}
+
+@Component({
+  selector: 'dialog.component',
+  templateUrl: './dialog/dialog.component.html',
+  styleUrls: ['./dialog/dialog.component.scss'],
+})
+export class DialogComponentDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponentDialog>,
+    ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

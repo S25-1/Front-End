@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DialogComponent } from './dialog/dialog.component';
-import { VacatureComponent } from './vacature.component';
+import { VacatureComponent, VacatureDialog } from './vacature.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    MaterialModule,
   ],
-  declarations: [VacatureComponent, DialogComponent],
+  declarations: [
+    VacatureComponent,
+    VacatureDialog,
+  ],
+  exports: [
+    VacatureComponent,
+  ],
 })
 export class VacatureModule { }

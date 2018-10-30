@@ -4,10 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavfooterModule } from './navfooter/navfooter.module';
+import { VacatureModule } from './vacature/vacature.module'
 
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { VacatureComponent } from './vacature/vacature.component';
 import { LoginComponent } from './login/login.component';
 import { AddEmployeeModule } from './add-employee/add-employee.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -19,7 +19,6 @@ import { EditvacatureComponent } from './editvacature/editvacature.component';
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    VacatureComponent,
     EditvacatureComponent,
   ],
   imports: [
@@ -28,6 +27,7 @@ import { EditvacatureComponent } from './editvacature/editvacature.component';
     BrowserAnimationsModule,
     NavfooterModule,
     AddEmployeeModule,
+    VacatureModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],

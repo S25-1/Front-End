@@ -5,9 +5,9 @@ import { AppComponent } from 'src/app/app.component';
 import { VACANCYLIST } from './vacancyList';
 
 @Component({
-  selector: 'app-vacancy',
-  templateUrl: './vacancy.component.html',
-  styleUrls: ['./vacancy.component.scss'],
+  selector: 'app-Vacature',
+  templateUrl: './Vacature.component.html',
+  styleUrls: ['./Vacature.component.scss'],
 })
 export class VacancyComponent {
   navlist = VACANCYLIST;
@@ -26,3 +26,7 @@ export class VacancyComponent {
     this.mobileQuery.addListener(this.mobileQueryListener);
   }
 }
+
+  selector: 'app-vacancy',
+  templateUrl: './vacancy.component.html',
+  styleUrls: ['./vacancy.component.scss'],

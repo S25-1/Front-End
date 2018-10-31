@@ -2,15 +2,15 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { AppComponent } from 'src/app/app.component';
 
-import { EDITVACATURELIST } from './editvacatureList';
+import { EDITVACANCYLIST } from './editvacancyList';
 
 @Component({
   selector: 'app-Vacature',
-  templateUrl: './editvacature.component.html',
-  styleUrls: ['./editvacature.component.scss'],
+  templateUrl: './editvacancy.component.html',
+  styleUrls: ['./editvacancy.component.scss'],
 })
-export class EditvacatureComponent {
-  navlist = EDITVACATURELIST;
+export class EditvacancyComponent {
+  navlist = EDITVACANCYLIST;
 
   // Import global vars
   newAppComponent: AppComponent = new AppComponent();

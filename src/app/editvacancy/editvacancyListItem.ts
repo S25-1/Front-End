@@ -1,4 +1,4 @@
-export class EditvacatureListItem {
+export class EditvacancyListItem {
   id: number;
   taak: string;
   ervaring: string;

@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { AddEmployeeModule } from './add-employee/add-employee.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { EditvacatureComponent } from './editvacature/editvacature.component';
+import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { EditvacatureComponent } from './editvacature/editvacature.component';
     DashboardComponent,
     LoginComponent,
     VacancyComponent,
-    EditvacatureComponent,
+    EditvacancyComponent,
   ],
   imports: [
     BrowserModule,

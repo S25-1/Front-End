@@ -7,7 +7,7 @@ import { NavfooterModule } from './navfooter/navfooter.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { VacatureComponent } from './vacature/vacature.component';
+import { VacancyComponent } from './vacancy/vacancy.component';
 import { LoginComponent } from './login/login.component';
 import { AddEmployeeModule } from './add-employee/add-employee.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -19,7 +19,7 @@ import { EditvacatureComponent } from './editvacature/editvacature.component';
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    VacatureComponent,
+    VacancyComponent,
     EditvacatureComponent,
   ],
   imports: [

@@ -14,7 +14,7 @@ describe('VacatureComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VacatureComponent);
+    fixture = TestBed.createComponent(EditvacatureComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

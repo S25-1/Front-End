@@ -5,9 +5,9 @@ import { AppComponent } from 'src/app/app.component';
 import { VACANCYLIST } from './vacancyList';
 
 @Component({
-  selector: 'app-Vacancy',
-  templateUrl: './Vacancy.component.html',
-  styleUrls: ['./Vacancy.component.scss'],
+  selector: 'app-vacancy',
+  templateUrl: './vacancy.component.html',
+  styleUrls: ['./vacancy.component.scss'],
 })
 export class VacancyComponent {
   navlist = VACANCYLIST;

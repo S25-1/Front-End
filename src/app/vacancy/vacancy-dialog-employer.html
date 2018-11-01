@@ -1,0 +1,21 @@
+<td><button class="btn btn-primary" ng-click="edit = true">Edit</button>
+</td>
+
+<div class="people-view">
+<h2 class="name"><span ng-show="!edit">{{ data.Job }}</span><input ng-show="edit" value="{{ data.Job }}"></h2>
+<span class="title"><span ng-show="!edit">{{ data.Date }}<input ng-show="edit" value="{{ data.Date }}"></span></span>
+<span class="date"><span ng-show="!edit">{{ data.Experience }} <input ng-show="edit" value="{{ data.Experience }}"></span></span>
+
+</div>
+
+<script>    
+app.controller("MyCtrl", function($scope) {
+  $scope.submitted = false;
+    $scope.edit = false;
+
+  $scope.submit = function(people){
+    $scope.edit = false;
+    $scope.submitted = false;
+  }
+});
+</script>

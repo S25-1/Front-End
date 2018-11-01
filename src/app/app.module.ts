@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AddEmployeeModule } from './add-employee/add-employee.module';
-import { AddVacancyModule } from "./add-vacancy/add-vacancy.module";
+import { AddVacancyModule } from './add-vacancy/add-vacancy.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 

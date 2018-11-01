@@ -1,9 +1,9 @@
 export class Vacancy {
   userUUID: string;
   name: string;
-  requiredSkills: JobType;
-  beginDate: string;
-  endDate: string;
+  requiredSkills: JobType[];
+  beginDateTime: string;
+  endDateTime: string;
   description: string;
   jobType: JobType;
 
@@ -11,23 +11,23 @@ export class Vacancy {
     return JSON.parse(`
       { "jobTypes" : [
         {
-          "value"       : "StockClerk",
+          "value"       : 1,
           "placeholder" : "stock clerk"
         },
         {
-          "value"       : "Cashier",
+          "value"       : 2,
           "placeholder" : "cashier"
         },
         {
-          "value"       : "Manager",
+          "value"       : 3,
           "placeholder" : "manager"
         },
         {
-          "value"       : "Greengrocer",
+          "value"       : 4,
           "placeholder" : "greengrocer"
         },
         {
-          "value"       : "SecurityGuard",
+          "value"       : 5,
           "placeholder" : "security guard"
         }
       ]

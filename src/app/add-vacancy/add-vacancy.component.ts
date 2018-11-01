@@ -11,15 +11,13 @@ export class AddVacancyComponent implements OnInit {
   newVacancy: Vacancy = new Vacancy();
   jobTypeItems = this.newVacancy.getJobTypes();
 
-  beginDate: number = Date.now();
-  beginTime: string;
+  date: number = Date.now();
 
-  endDate: string;
-  endTime: string;
+  beginDate: string;
+  beginTime: string;
 
   jobType: string;
 
   ngOnInit() {
   }
-
 }

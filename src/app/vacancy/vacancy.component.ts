@@ -4,6 +4,8 @@ import { VACANCYLIST } from './vacancyList';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-vacancy',
   templateUrl: './vacancy.component.html',
@@ -20,6 +22,7 @@ export class VacancyComponent {
       height: '400px',
       width: '600px',
       data: { Job: job, Date: date, Experience: experience },
+      autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -31,8 +34,9 @@ export class VacancyComponent {
 // Dialog Component
 
 @Component({
-  selector: 'vacancy-dialog-employer',
-  templateUrl: 'vacancy-dialog-employer.html',
+  selector: 'vacancy-dialog-employee',
+  templateUrl: 'vacancy-dialog-employee.html',
+  styleUrls: ['vacancy-dialog-employee.scss'],
 })
 export class VacancyDialog {
   constructor(

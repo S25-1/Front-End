@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- node
+before_install:
+- npm i -g npm
+install:
+- npm install -g firebase-tools
+- npm install
+- npm run build
+deploy:
+  provider: firebase
+  token:
+    secure: "$FIREBASE_TOKEN"
+    on:
+      branch:
+      - job

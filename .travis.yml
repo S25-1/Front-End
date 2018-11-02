@@ -9,5 +9,3 @@ install:
   - npm run build
 after_success:
   - sudo firebase deploy --token $FIREBASE_TOKEN
-  on:
-    branch: job

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AddVacancyComponent } from './add-vacancy.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
-import { TimepickerComponent } from './timepicker/timepicker.component';
 
 @NgModule({
   imports: [
@@ -11,7 +10,7 @@ import { TimepickerComponent } from './timepicker/timepicker.component';
     MaterialModule,
     FormsModule,
   ],
-  declarations: [AddVacancyComponent, TimepickerComponent],
+  declarations: [AddVacancyComponent],
   exports: [AddVacancyComponent],
 })
 export class AddVacancyModule { }

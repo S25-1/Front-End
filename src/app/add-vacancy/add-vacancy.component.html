@@ -7,9 +7,19 @@
     </mat-form-field>
     
     <mat-form-field>
-      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Begin Date" (dateInput)="beginDate = $event.value">
+      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" (dateInput)="beginDate = $event.value">
       <mat-datepicker-toggle matSuffix [for]="vacancyBeginDate"></mat-datepicker-toggle>
       <mat-datepicker #vacancyBeginDate></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Start of shift</mat-label>
+        <input matInput [(ngModel)]="beginTime" type="time">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>End of shift</mat-label>
+        <input matInput [(ngModel)]="endTime" type="time">
     </mat-form-field>
 
     <mat-form-field>
@@ -19,7 +29,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-
 
   </div>
 </form>
@@ -42,6 +51,3 @@
     <td>{{ newVacancy.jobType }}</td>
   </tr>
 </table>
-
-
-<app-timepicker></app-timepicker>

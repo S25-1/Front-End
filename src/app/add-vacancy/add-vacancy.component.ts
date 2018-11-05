@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vacancy, JobType } from './vacancy';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -8,6 +9,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./add-vacancy.component.scss'],
 })
 export class AddVacancyComponent implements OnInit {
+  // TODO: Add base URI
+  apiUri: string = 'localhost:8080';
 
   newVacancy: Vacancy = new Vacancy();
   jobTypeItems = this.newVacancy.getJobTypes();
@@ -17,7 +20,7 @@ export class AddVacancyComponent implements OnInit {
   vacancyForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
   // Set limit for date picker
   minDate = new Date();
@@ -58,8 +61,6 @@ export class AddVacancyComponent implements OnInit {
   }
 
   submitVacancy() {
-    // alert(JSON.stringify(this.vacancyForm.value));
-
-
+    this.http.post(`${this.apiUri}/addvacancy`, JSON.stringify(this.vacancyForm.value));
   }
 }

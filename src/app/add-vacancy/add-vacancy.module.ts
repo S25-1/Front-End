@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddVacancyComponent } from './add-vacancy.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -10,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   declarations: [AddVacancyComponent],
   exports: [AddVacancyComponent],

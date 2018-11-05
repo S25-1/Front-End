@@ -1,7 +1,7 @@
 export class Vacancy {
   userUUID: string;
   name: string;
-  requiredSkills: JobType[];
+  requiredSkills: Skill[];
   beginDateTime: string;
   endDateTime: string;
   description: string;
@@ -32,8 +32,34 @@ export class Vacancy {
         }
       ]
     }`).jobTypes;
-    // This is a bit hacky but it is easy for testing
   }
+  getSkills(): Skill[] {
+    return JSON.parse(`
+    { "skills" : [
+      {
+        "value"       : 1,
+        "placeholder" : "first aid"
+      },
+      {
+        "value"       : 2,
+        "placeholder" : "marketing"
+      },
+      {
+        "value"       : 3,
+        "placeholder" : "speaks English"
+      },
+      {
+        "value"       : 4,
+        "placeholder" : "speaks German"
+      },
+      {
+        "value"       : 5,
+        "placeholder" : "stock manager"
+      }
+    ]
+  }`).skills;
+  }
+  // This is a bit hacky but it is easy for testing
 }
 
 export interface JobType {
@@ -41,10 +67,7 @@ export interface JobType {
   placeholder: string;
 }
 
-// export enum jobTypes {
-//   StockClerk = 'stock clerk',
-//   Cashier = 'cashier',
-//   Manager = 'manager',
-//   GreenGrocer = 'greengrocer',
-//   SecurityGuard = 'security guard',
-// }
+export interface Skill {
+  value: string;
+  placeholder: string;
+}

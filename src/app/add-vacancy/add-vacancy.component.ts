@@ -10,13 +10,16 @@ export class AddVacancyComponent implements OnInit {
 
   newVacancy: Vacancy = new Vacancy();
   jobTypeItems = this.newVacancy.getJobTypes();
+  skillItems = this.newVacancy.getSkills();
 
-  date: number = Date.now();
+  // Set limit for date picker
+  minDate = new Date();
+
+  name: string;
 
   beginDate: string;
   beginTime: string;
 
-  endDate: string;
   endTime: string;
 
   jobType: string;

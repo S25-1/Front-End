@@ -1,25 +1,25 @@
 <h1>Add a New Vacancy</h1>
-<form action="">
+<form>
   <div class="left-of-picture">
     <mat-form-field appearance="standard">
       <mat-label>Name</mat-label>
-      <input matInput [(ngModel)]="newVacancy.name" name="name">
+      <input matInput [(ngModel)]="name" name="name">
     </mat-form-field>
     
     <mat-form-field>
-      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" (dateInput)="beginDate = $event.value">
+      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" (dateInput)="beginDate = $event.value" [min]="minDate">
       <mat-datepicker-toggle matSuffix [for]="vacancyBeginDate"></mat-datepicker-toggle>
       <mat-datepicker #vacancyBeginDate></mat-datepicker>
     </mat-form-field>
     
     <mat-form-field>
         <mat-label>Start of shift</mat-label>
-        <input matInput [(ngModel)]="beginTime" type="time">
+        <input matInput [(ngModel)]="beginTime" type="time" name="beginTime">
     </mat-form-field>
     
     <mat-form-field>
         <mat-label>End of shift</mat-label>
-        <input matInput [(ngModel)]="endTime" type="time">
+        <input matInput [(ngModel)]="endTime" type="time" name="endTime">
     </mat-form-field>
 
     <mat-form-field>
@@ -30,6 +30,13 @@
       </mat-select>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-select placeholder="Skills" [(value)]="newVacancy.requiredSkills" multiple>
+        <mat-option *ngFor="let skill of skillItems" [(value)]="skill.value">
+          {{ skill.placeholder | titlecase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 </form>
 
@@ -40,7 +47,7 @@
   </tr>
   <tr>
     <td>name</td>
-    <td> {{ newVacancy.name }} </td>
+    <td> {{ name }} </td>
   </tr>
   <tr>
     <td>beginDate</td>
@@ -49,5 +56,10 @@
   <tr>
     <td>jobType</td>
     <td>{{ newVacancy.jobType }}</td>
+  </tr>
+
+  <tr>
+    <td>requiredSkills</td>
+    <td>{{ newVacancy.requiredSkills }}</td>
   </tr>
 </table>

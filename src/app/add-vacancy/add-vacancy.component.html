@@ -7,6 +7,19 @@
     </mat-form-field>
     
     <mat-form-field>
+      <mat-select placeholder="Job Type" [(value)]="newVacancy.jobType">
+        <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
+          {{ jobType.placeholder | titlecase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Description of vacancy</mat-label>
+      <textarea matInput [(ngModel)]="description" name="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
       <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" (dateInput)="beginDate = $event.value" [min]="minDate">
       <mat-datepicker-toggle matSuffix [for]="vacancyBeginDate"></mat-datepicker-toggle>
       <mat-datepicker #vacancyBeginDate></mat-datepicker>
@@ -23,20 +36,18 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Job Type" [(value)]="newVacancy.jobType">
-        <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
-          {{ jobType.placeholder | titlecase }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-select placeholder="Skills" [(value)]="newVacancy.requiredSkills" multiple>
+      <mat-select placeholder="Required Skills" [(value)]="newVacancy.requiredSkills" multiple>
         <mat-option *ngFor="let skill of skillItems" [(value)]="skill.value">
           {{ skill.placeholder | titlecase }}
         </mat-option>
       </mat-select>
     </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mininal Work Experience</mat-label>
+      <input matInput [(ngModel)]="minimalExperience" type="text" name="minimalExperience">
+    </mat-form-field>
+    <span>months</span>
   </div>
 </form>
 
@@ -57,7 +68,6 @@
     <td>jobType</td>
     <td>{{ newVacancy.jobType }}</td>
   </tr>
-
   <tr>
     <td>requiredSkills</td>
     <td>{{ newVacancy.requiredSkills }}</td>

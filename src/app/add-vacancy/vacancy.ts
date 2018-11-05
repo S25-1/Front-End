@@ -4,6 +4,7 @@ export class Vacancy {
   requiredSkills: Skill[];
   beginDateTime: string;
   endDateTime: string;
+  minimalExperience: string;
   description: string;
   jobType: JobType;
 

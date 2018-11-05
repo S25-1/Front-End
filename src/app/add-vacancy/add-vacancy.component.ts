@@ -19,8 +19,9 @@ export class AddVacancyComponent implements OnInit {
 
   beginDate: string;
   beginTime: string;
-
   endTime: string;
+
+  minimalExperience: string;
 
   jobType: string;
 

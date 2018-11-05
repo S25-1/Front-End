@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vacancy, JobType } from './vacancy';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -12,12 +13,18 @@ export class AddVacancyComponent implements OnInit {
   jobTypeItems = this.newVacancy.getJobTypes();
   skillItems = this.newVacancy.getSkills();
 
+  // Form Tests
+  vacancyForm: FormGroup;
+  submitted = false;
+
+  constructor(private formBuilder: FormBuilder) { }
+
   // Set limit for date picker
   minDate = new Date();
 
   name: string;
 
-  beginDate: string;
+  beginDate: Date;
   beginTime: string;
   endTime: string;
 
@@ -25,6 +32,34 @@ export class AddVacancyComponent implements OnInit {
 
   jobType: string;
 
+  // mergedDates: any;
+
+  // mergeDates() {
+  //   // let test = moment(this.beginTime);
+  //   // console.log(test);
+  //   // test = moment(this.beginDate);
+  //   // test.set
+  //   let date = moment(this.beginDate);
+  //   console.log(moment(date).add(this.beginTime, 'hours'));
+  //   // console.log(date);
+  // }
+
   ngOnInit() {
+    this.vacancyForm = this.formBuilder.group({
+      name: [],
+      jobType: [],
+      description: [],
+      beginDate: [],
+      beginTime: [],
+      endTime: [],
+      requiredSkills: [],
+      minimalExperience: [],
+    });
+  }
+
+  submitVacancy() {
+    // alert(JSON.stringify(this.vacancyForm.value));
+
+
   }
 }

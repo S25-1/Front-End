@@ -1,13 +1,13 @@
 <h1>Add a New Vacancy</h1>
-<form>
+<form (ngSubmit)="submitVacancy()" [formGroup]="vacancyForm">
   <div class="left-of-picture">
     <mat-form-field appearance="standard">
       <mat-label>Name</mat-label>
-      <input matInput [(ngModel)]="name" name="name">
+      <input matInput name="name" formControlName="name" required>
     </mat-form-field>
     
     <mat-form-field>
-      <mat-select placeholder="Job Type" [(value)]="newVacancy.jobType">
+      <mat-select placeholder="Job Type" [(value)]="newVacancy.jobType" formControlName="jobType" required>
         <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
           {{ jobType.placeholder | titlecase }}
         </mat-option>
@@ -16,27 +16,27 @@
 
     <mat-form-field appearance="standard">
       <mat-label>Description of vacancy</mat-label>
-      <textarea matInput [(ngModel)]="description" name="description"></textarea>
+      <textarea matInput name="description" formControlName="description" required></textarea>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" (dateInput)="beginDate = $event.value" [min]="minDate">
+      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" (dateInput)="beginDate = $event.value" [min]="minDate" formControlName="beginDate" required>
       <mat-datepicker-toggle matSuffix [for]="vacancyBeginDate"></mat-datepicker-toggle>
       <mat-datepicker #vacancyBeginDate></mat-datepicker>
     </mat-form-field>
     
     <mat-form-field>
         <mat-label>Start of shift</mat-label>
-        <input matInput [(ngModel)]="beginTime" type="time" name="beginTime">
+        <input matInput type="time" name="beginTime" formControlName="beginTime" required>
     </mat-form-field>
     
     <mat-form-field>
         <mat-label>End of shift</mat-label>
-        <input matInput [(ngModel)]="endTime" type="time" name="endTime">
+        <input matInput type="time" name="endTime" formControlName="endTime" required>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Required Skills" [(value)]="newVacancy.requiredSkills" multiple>
+      <mat-select placeholder="Required Skills" [(value)]="newVacancy.requiredSkills" formControlName="requiredSkills" multiple>
         <mat-option *ngFor="let skill of skillItems" [(value)]="skill.value">
           {{ skill.placeholder | titlecase }}
         </mat-option>
@@ -45,31 +45,10 @@
 
     <mat-form-field>
       <mat-label>Mininal Work Experience</mat-label>
-      <input matInput [(ngModel)]="minimalExperience" type="text" name="minimalExperience">
+      <input matInput type="text" name="minimalExperience" formControlName="minimalExperience">
     </mat-form-field>
     <span>months</span>
+
+    <button type="submit">Post Vacancy</button>
   </div>
 </form>
-
-<table>
-  <tr>
-    <th>Variables</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td> {{ name }} </td>
-  </tr>
-  <tr>
-    <td>beginDate</td>
-    <td> {{ beginDate }} </td>
-  </tr>
-  <tr>
-    <td>jobType</td>
-    <td>{{ newVacancy.jobType }}</td>
-  </tr>
-  <tr>
-    <td>requiredSkills</td>
-    <td>{{ newVacancy.requiredSkills }}</td>
-  </tr>
-</table>

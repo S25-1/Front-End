@@ -6,7 +6,6 @@ sudo: required
 before_script:
   - npm install -g @angular/cli
 script:
-- ng lint
 - ng build --prod
 after_success:
   - sudo firebase deploy --token $FIREBASE_TOKEN

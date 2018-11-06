@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
-
-import { VACANCYLIST } from './vacancyList';
+import { Component, Inject, OnInit } from '@angular/core';
+import { VacancyService } from './vacancy.service';
+import { Observable } from 'rxjs';
+// import { VACANCYLIST } from './vacancyList';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -9,11 +10,16 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.scss'],
 })
+export class VacancyComponent implements OnInit{
+  // vacancylist = VACANCYLIST;
+  public vacancies = [];
 
-export class VacancyComponent {
-  vacancylist = VACANCYLIST;
+  constructor(public dialog: MatDialog, private vacancyService: VacancyService) {}
 
-  constructor(public dialog: MatDialog) {}
+  ngOnInit() {
+    this.vacancyService.getVacancy()
+      .subscribe(data => this.vacancies = data);
+  }
 
   openDialog(job, date, experience): void {
     const dialogRef = this.dialog.open(VacancyDialog, {
@@ -38,4 +44,5 @@ export class VacancyDialog {
   constructor(
     public dialogRef: MatDialogRef<VacancyDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
+
 }

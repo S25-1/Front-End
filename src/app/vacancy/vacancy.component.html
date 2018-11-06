@@ -1,17 +1,18 @@
 <span><h1>Open Vacatures</h1></span>
 <div class="grid-container">
-<a *ngFor="let vacancyItem of vacancylist" (click)="openDialog(vacancyItem.taak, vacancyItem.datum, vacancyItem.ervaring)" class="papers" >
+<a *ngFor="let vacancy of vacancys" class="papers">
+<!-- (click)="openDialog(vacancy.taak, vacancyItem.datum, vacancyItem.ervaring)"  -->
     <div class="top-div">
         <img class="image" src="\assets\calender.svg">
         <span>
-            <b>{{ vacancyItem.taak }}</b>
+            <b>{{ vacancy.name }}</b>
         </span>
         <span style="text-align: right;">
-            {{ vacancyItem.datum }}
+            <!-- {{ vacancyItem.dateBegin }} -->
           </span>
     </div>
     <div class="bottom-div">
-      <span>Ervaring: {{ vacancyItem.ervaring }}</span>      
+      <!-- <span>Ervaring: {{ vacancyItem.minMonthsExperience }}</span>       -->
     </div>
   </a>  
 

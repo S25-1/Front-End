@@ -1,21 +1,20 @@
-<td><button class="btn btn-primary" ng-click="edit = true">Edit</button>
-</td>
-
-<div class="people-view">
-<h2 class="name"><span ng-show="!edit">{{ data.Job }}</span><input ng-show="edit" value="{{ data.Job }}"></h2>
-<span class="title"><span ng-show="!edit">{{ data.Date }}<input ng-show="edit" value="{{ data.Date }}"></span></span>
-<span class="date"><span ng-show="!edit">{{ data.Experience }} <input ng-show="edit" value="{{ data.Experience }}"></span></span>
-
-</div>
-
-<script>    
+<!-- <script>
+var app = angular.module("MY_APP", []);
 app.controller("MyCtrl", function($scope) {
   $scope.submitted = false;
-    $scope.edit = false;
+  $scope.edit = false;
 
   $scope.submit = function(people){
     $scope.edit = false;
     $scope.submitted = false;
   }
 });
-</script>
+  </script> -->
+
+     <h2 class="name"><span ng-if="View">{{ data.Job }}</span><input ng-if="Edit" value="{{ data.Job }}"></h2>
+     <span class="title"><span ng-if="View">{{ data.Date }}<input ng-if="Edit" value="{{ data.Date }}"></span></span><br/><br/>
+     <span class="date"><span ng-if="View">{{ data.Experience }} <input ng-if="Edit" value="{{ data.Experience }}"></span></span>
+      <button ng-click="edit = false"type="submit">Submit</button>
+
+
+

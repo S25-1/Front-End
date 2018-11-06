@@ -13,6 +13,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { VacancyModule } from './vacancy/vacancy.module';
+import { VacancyService } from './vacancy/vacancy.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { VacancyModule } from './vacancy/vacancy.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NavfooterModule,
@@ -30,7 +33,7 @@ import { VacancyModule } from './vacancy/vacancy.module';
     VacancyModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [VacancyService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

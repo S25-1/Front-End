@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddVacancyComponent } from './add-vacancy.component';
+import { MaterialModule } from '../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AddVacancyComponent', () => {
   let component: AddVacancyComponent;
@@ -8,7 +11,15 @@ describe('AddVacancyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddVacancyComponent ]
+      declarations: [
+        AddVacancyComponent,
+      ],
+      imports: [
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+      ],
     })
     .compileComponents();
   }));

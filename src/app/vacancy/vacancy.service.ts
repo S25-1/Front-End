@@ -3,9 +3,6 @@ import { Observable , of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Vacancy } from './vacancyListItem';
 
-export interface Test {
-}
-
 @Injectable()
 export class VacancyService {
   constructor(private http: HttpClient) {}

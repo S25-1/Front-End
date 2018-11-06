@@ -16,7 +16,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { VacancyModule } from './vacancy/vacancy.module';
 import { VacancyService } from './vacancy/vacancy.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

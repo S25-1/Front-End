@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Vacancy, JobType } from './vacancy';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -45,15 +44,28 @@ export class AddVacancyComponent implements OnInit {
 
   jobType: string;
 
-  mergeDates(dateValue: string, timeValue: string): string {
-    return dateValue.toString().replace(' 00:00', ` ${timeValue}`);
+  private mergeDates(dateValue: string, timeValue: string): string {
+    const returnValue = dateValue.toString().replace(' 00:00', ` ${timeValue}`);
+
+    return returnValue;
   }
 
-  submitVacancy() {
+  private submitVacancy() {
+    if (this.vacancyForm.invalid) {
+      return;
+    }
     const fValue = this.vacancyForm.value;
+    const fControls = this.vacancyForm.controls;
 
-    fValue.beginDateTime.value = this.mergeDates(fValue.beginDate, fValue.beginTime);
-    fValue.endDateTime.value = this.mergeDates(fValue.beginDate, fValue.endDateTime);
+    fControls['beginDateTime'].setValue(
+      this.mergeDates(fValue['beginDate'], fValue['beginTime']),
+    );
+
+    fControls['endDateTime'].setValue(
+      this.mergeDates(fValue['beginDate'], fValue['endTime']),
+    );
+
+    alert(JSON.stringify(fValue));
 
     this.http.post(`${this.apiUri}/addvacancy`, JSON.stringify(fValue));
   }

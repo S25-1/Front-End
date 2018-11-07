@@ -7,11 +7,11 @@
             <b>{{ vacancy.Name }}</b>
         </span>
         <span style="text-align: right;">
-            <!-- {{ vacancyItem.dateBegin }} -->
+            {{ vacancy.Date_begin | date:'dd-MM-yy' }}
           </span>
     </div>
     <div class="bottom-div">
-      <!-- <span>Ervaring: {{ vacancyItem.minMonthsExperience }}</span>       -->
+      <span>Experience: {{ vacancy.MinExperience }} Months</span>      
     </div>
   </a>  
 

@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { VacancyService } from './vacancy.service';
 import { Observable } from 'rxjs';
+import * as moment from 'moment';
 // import { VACANCYLIST } from './vacancyList';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -15,7 +16,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class VacancyComponent implements OnInit{
   // vacancylist = VACANCYLIST;
   public vacancies = [];
-
   constructor(public dialog: MatDialog, private vacancyService: VacancyService) {}
 
   ngOnInit() {

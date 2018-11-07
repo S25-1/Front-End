@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { NavfooterModule } from './navfooter/navfooter.module';
 
@@ -16,6 +15,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { VacancyModule } from './vacancy/vacancy.module';
 import { VacancyService } from './vacancy/vacancy.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { VacancyService } from './vacancy/vacancy.service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     NavfooterModule,
     AddEmployeeModule,
     AddVacancyModule,

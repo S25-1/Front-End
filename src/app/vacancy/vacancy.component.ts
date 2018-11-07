@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { VacancyService } from './vacancy.service';
 import { Observable } from 'rxjs';
-import * as moment from 'moment';
 // import { VACANCYLIST } from './vacancyList';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';

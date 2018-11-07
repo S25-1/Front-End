@@ -3,8 +3,9 @@
 </div>
 
 <h3> {{ data.Job }} </h3>
-<p> Date: {{ data.Date }} </p>
-<p> Experience: {{ data.Experience }} </p>
+<p> Date: {{ data.Date | date:'dd-MM-yy' }} </p>
+<p> Time: {{ data.Date | date:'hh:mm' }} </p>
+<p> Experience: {{ data.Experience }} Months</p>
 
 <form>
     <mat-form-field>
@@ -13,6 +14,6 @@
     
     <div class="reply-buttons-flex">
         <!-- <button class="reply-button mat-button-reject" mat-raised-button>Reject</button> -->
-        <button class="reply-button mat mat-button-accept" mat-raised-button>Accept</button> 
+        <button type="submit" class="reply-button mat mat-button-accept" mat-raised-button>Apply</button> 
     </div>
 </form>

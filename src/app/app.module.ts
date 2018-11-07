@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { VacancyModule } from './vacancy/vacancy.module';
 import { VacancyService } from './vacancy/vacancy.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { VacancyService } from './vacancy/vacancy.service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     NavfooterModule,
     AddEmployeeModule,
     VacancyModule,

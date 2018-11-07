@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import { VacancyComponent, VacancyDialog } from './vacancy.component';
 import { MaterialModule } from '../material/material.module';
 import { DialogComponent } from './dialog/dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   declarations: [
     VacancyComponent,

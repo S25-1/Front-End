@@ -8,9 +8,10 @@ export interface Test {
 
 @Injectable()
 export class VacancyService {
+  private url: string = 'https://cgi-group1.azurewebsites.net/api/Vacancy?command=getVacancyList';
   constructor(private http: HttpClient) {}
 
   getVacancy(): Observable<Vacancy[]> {
-    return this.http.get<Vacancy[]>('http://localhost:50382/api/Vacancy?command=getVacancyList');
+    return this.http.get<Vacancy[]>(this.url);
   }
 }

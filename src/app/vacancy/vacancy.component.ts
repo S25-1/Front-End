@@ -8,7 +8,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-vacancy',
+  selector: 'vacancy',
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.scss'],
 })

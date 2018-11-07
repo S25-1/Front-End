@@ -1,13 +1,13 @@
 export interface Vacancy {
-  vacancyID: number;
-  userID: number;
-  name: string;
-  requiredJob: number;
-  reqCompetence: [{skillTypeID: number, skillTypeName: string}];
-  description: string;
-  dateBegin: string;
-  dateEnd: string;
-  minMonthsExperience: number;
+  // VacancyID: number;
+  // UserID: number;
+  Name: string;
+  // RequiredJob: number;
+  // ReqCompetence: [{skillTypeID: number, skillTypeName: string}];
+  // Description: string;
+  // DateBegin: string;
+  // DateEnd: string;
+  // MinMonthsExperience: number;
 }
 // export interface Skill {
 //   skillID: number;

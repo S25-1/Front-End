@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddVacancyComponent implements OnInit {
   // TODO: Add base URI
-  apiUri: string = 'localhost:8080';
+  apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
 
   newVacancy: Vacancy = new Vacancy();
   jobTypeItems = this.newVacancy.getJobTypes();
@@ -54,19 +54,32 @@ export class AddVacancyComponent implements OnInit {
     if (this.vacancyForm.invalid) {
       return;
     }
-    const fValue = this.vacancyForm.value;
     const fControls = this.vacancyForm.controls;
+    let fValue = this.vacancyForm.value;
 
-    fControls['beginDateTime'].setValue(
-      this.mergeDates(fValue['beginDate'], fValue['beginTime']),
-    );
+    // fControls['beginDateTime'].setValue(
+    //   this.mergeDates(fValue['beginDate'], fValue['beginTime']),
+    // );
 
-    fControls['endDateTime'].setValue(
-      this.mergeDates(fValue['beginDate'], fValue['endTime']),
-    );
+    // fControls['endDateTime'].setValue(
+    //   this.mergeDates(fValue['beginDate'], fValue['endTime']),
+    // );
 
-    alert(JSON.stringify(fValue));
+    fValue = this.vacancyForm.value;
+    let req = fValue;
 
-    this.http.post(`${this.apiUri}/addvacancy`, JSON.stringify(fValue));
+    req['beginDateTime'] = this.mergeDates(req['beginDate'], req['beginTime']),
+    req['endDateTime'] = this.mergeDates(req['beginDate'], req['endTime']),
+
+    // Delete unnecessary values
+    delete req['beginDate'];
+    delete req['beginTime'];
+    delete req['endTime'];
+
+    req = JSON.stringify(req);
+
+    // console.log(req);
+
+    this.http.post(`${this.apiUri}/vacancy/add`, JSON.stringify(req));
   }
 }

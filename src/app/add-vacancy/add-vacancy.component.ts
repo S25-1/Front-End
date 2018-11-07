@@ -34,6 +34,7 @@ export class AddVacancyComponent implements OnInit {
       minimalExperience: [],
       beginDateTime: [],
       endDateTime: [],
+      userID: [1],
     });
   }
 
@@ -51,20 +52,9 @@ export class AddVacancyComponent implements OnInit {
   }
 
   private submitVacancy() {
-    if (this.vacancyForm.invalid) {
-      return;
-    }
-    const fControls = this.vacancyForm.controls;
+    if (this.vacancyForm.invalid) { return; }
+
     let fValue = this.vacancyForm.value;
-
-    // fControls['beginDateTime'].setValue(
-    //   this.mergeDates(fValue['beginDate'], fValue['beginTime']),
-    // );
-
-    // fControls['endDateTime'].setValue(
-    //   this.mergeDates(fValue['beginDate'], fValue['endTime']),
-    // );
-
     fValue = this.vacancyForm.value;
     let req = fValue;
 
@@ -78,7 +68,7 @@ export class AddVacancyComponent implements OnInit {
 
     req = JSON.stringify(req);
 
-    // console.log(req);
+    console.log(req);
 
     this.http.post(`${this.apiUri}/vacancy/add`, JSON.stringify(req));
   }

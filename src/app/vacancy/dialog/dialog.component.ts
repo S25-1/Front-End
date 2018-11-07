@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
@@ -8,6 +8,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
+
+  apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
 
   constructor(
     private http: HttpClient,
@@ -32,12 +34,22 @@ export class DialogComponent implements OnInit {
       Accepted: `${accepted}`,
     };
 
-    console.log(JSON.stringify(req));
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      }),
+    };
 
-    // this.http.post(
-    //   'https://cgi-group1.azurewebsites.net/api/vacancy/addaccepteduser',
-    //   JSON.stringify(fValue),
-    //   );
+    this.http.post(
+      `${this.apiUri}/vacancy/addaccepteduser`, JSON.stringify(req), httpOptions)
+        .subscribe(
+          (data) => {
+            console.log('POST Request is successful ', data);
+          },
+          (error) => {
+            console.log('Error', error);
+          },
+        );
   }
 }
 

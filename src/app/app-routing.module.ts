@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { VacancyComponent } from './vacancy/vacancy.component';
 import { LoginComponent } from './login/login.component';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
+import { AddVacancyComponent } from './add-vacancy/add-vacancy.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'vacancy', component: VacancyComponent },
   { path: 'editvacancy', component: EditvacancyComponent },
+  { path: 'addvacancy', component: AddVacancyComponent },
 ];
 
 @NgModule({

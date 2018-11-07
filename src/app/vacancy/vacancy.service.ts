@@ -3,9 +3,6 @@ import { Observable , of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Vacancy, Skill } from './vacancyListItem';
 
-export interface Test {
-}
-
 @Injectable()
 export class VacancyService {
   private url: string = 'http://cgi-group1.azurewebsites.net/api/vacancy/getVacancyList';

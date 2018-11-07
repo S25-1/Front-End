@@ -1,6 +1,6 @@
 <span><h1>Open Vacatures</h1></span>
 <div class="grid-container">
-<a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.Name, vacancy.Date_begin, vacancy.MinExperience)" >
+<a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.Name, vacancy.Date_begin, vacancy.MinExperience, vacancy.Date_end, vacancy.VacancyID)" >
     <div class="top-div">
         <img class="image" src="\assets\calender.svg">
         <span>

@@ -22,11 +22,12 @@ export class VacancyComponent implements OnInit{
       .subscribe(data => this.vacancies = data);
   }
 
-  openDialog(job, date, experience): void {
+  openDialog(name, startdate, experience, enddate, vacancyid): void {
     const dialogRef = this.dialog.open(VacancyDialog, {
       height: '400px',
       width: '600px',
-      data: { Job: job, Date: date, Experience: experience },
+      data: { Name: name, StartDate: startdate, Experience: experience,
+        EndDate: enddate, VacancyID: vacancyid },
       autoFocus: false,
     });
 

@@ -20,7 +20,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" (dateInput)="beginDate = $event.value" [min]="minDate" formControlName="beginDate" required>
+      <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" [min]="minDate" formControlName="beginDate" required>
       <mat-datepicker-toggle matSuffix [for]="vacancyBeginDate"></mat-datepicker-toggle>
       <mat-datepicker #vacancyBeginDate></mat-datepicker>
     </mat-form-field>

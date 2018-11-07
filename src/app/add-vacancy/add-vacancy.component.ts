@@ -54,7 +54,7 @@ export class AddVacancyComponent implements OnInit {
     return returnValue;
   }
 
-  private submitVacancy() {
+  submitVacancy() {
     if (this.vacancyForm.invalid) { return; }
 
     let fValue = this.vacancyForm.value;

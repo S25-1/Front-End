@@ -14,19 +14,35 @@ export class DialogComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
-  userID: string;
+  userID: string = '2';
   vacancyID: string;
 
   ngOnInit() {
     console.log(this.data);
+    this.vacancyID = this.data.VacancyID;
   }
 
   submitApplication(accepted: boolean) {
     // console.log(this.data);
+
+    // All values are sent as a string
+    let req: VacancyApplication = {
+      userID: `${this.userID}`,
+      vacancyID: `${this.vacancyID}`,
+      Accepted: `${accepted}`,
+    };
+
+    console.log(JSON.stringify(req));
 
     // this.http.post(
     //   'https://cgi-group1.azurewebsites.net/api/vacancy/addaccepteduser',
     //   JSON.stringify(fValue),
     //   );
   }
+}
+
+interface VacancyApplication {
+  userID: string;
+  vacancyID: string;
+  Accepted: string;
 }

@@ -45,8 +45,11 @@ export class AddVacancyComponent implements OnInit {
 
   jobType: string;
 
-  private mergeDates(dateValue: string, timeValue: string): string {
-    const returnValue = dateValue.toString().replace(' 00:00', ` ${timeValue}`);
+  // Merges date and timepicks and coverts it to a MySQL parsable format
+  private mergeDates(dateValue: Date, timeValue: string): string {
+    const returnValue = dateValue.toISOString()
+    .replace(/[TZ]/g, ' ')                // Replace T an Z with spaces to make it MySQL parsable
+    .replace(' 00:00', ` ${timeValue}`);  // Replace unspecified time with time input values
 
     return returnValue;
   }

@@ -5,9 +5,9 @@ export interface Vacancy {
   // RequiredJob: number;
   // ReqCompetence: [{skillTypeID: number, skillTypeName: string}];
   // Description: string;
-  // DateBegin: string;
+  Date_begin: Date;
   // DateEnd: string;
-  // MinMonthsExperience: number;
+  MinExperience: number;
 }
 // export interface Skill {
 //   skillID: number;

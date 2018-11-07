@@ -41,8 +41,8 @@ export class VacancyComponent implements OnInit{
 
 @Component({
   selector: 'vacancy-dialog-employee',
-  templateUrl: 'vacancy-dialog-employee.html',
-  styleUrls: ['vacancy-dialog-employee.scss'],
+  templateUrl: './dialog/dialog.component.html',
+  styleUrls: ['./dialog/dialog.component.scss'],
 })
 export class VacancyDialog {
   constructor(

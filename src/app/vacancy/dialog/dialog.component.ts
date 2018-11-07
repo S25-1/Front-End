@@ -22,7 +22,7 @@ export class DialogComponent implements OnInit {
   }
 
   submitApplication(accepted: boolean) {
-    // console.log(this.data);
+    console.log(this.data);
 
     // this.http.post(
     //   'https://cgi-group1.azurewebsites.net/api/vacancy/addaccepteduser',

@@ -7,7 +7,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-with-sw-fix": "ng build --prod --base-href https://example.com/ && node build/fix-sw  https://example.com/",
     "build": "ng build --prod"
   },
   "private": true,

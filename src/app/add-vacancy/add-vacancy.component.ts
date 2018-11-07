@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vacancy, JobType } from './vacancy';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddVacancyComponent implements OnInit {
   // TODO: Add base URI
-  apiUri: string = 'localhost:8080';
+  apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
 
   newVacancy: Vacancy = new Vacancy();
   jobTypeItems = this.newVacancy.getJobTypes();
@@ -22,31 +22,6 @@ export class AddVacancyComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
-  // Set limit for date picker
-  minDate = new Date();
-
-  name: string;
-
-  beginDate: Date;
-  beginTime: string;
-  endTime: string;
-
-  minimalExperience: string;
-
-  jobType: string;
-
-  // mergedDates: any;
-
-  // mergeDates() {
-  //   // let test = moment(this.beginTime);
-  //   // console.log(test);
-  //   // test = moment(this.beginDate);
-  //   // test.set
-  //   let date = moment(this.beginDate);
-  //   console.log(moment(date).add(this.beginTime, 'hours'));
-  //   // console.log(date);
-  // }
-
   ngOnInit() {
     this.vacancyForm = this.formBuilder.group({
       name: [],
@@ -57,10 +32,62 @@ export class AddVacancyComponent implements OnInit {
       endTime: [],
       requiredSkills: [],
       minimalExperience: [],
+      beginDateTime: [],
+      endDateTime: [],
+      userID: ['1'],
     });
   }
 
+  // Set limit for date picker
+  minDate = new Date();
+
+  name: string;
+
+  jobType: string;
+
+  // Merges date and timepicks and coverts it to a MySQL parsable format
+  private mergeDates(dateValue: Date, timeValue: string): string {
+    const returnValue = dateValue.toISOString()
+    .replace(/[TZ]/g, ' ')                // Replace T an Z with spaces to make it MySQL parsable
+    .replace(' 00:00', ` ${timeValue}`);  // Replace unspecified time with time input values
+
+    return returnValue;
+  }
+
   submitVacancy() {
-    this.http.post(`${this.apiUri}/addvacancy`, JSON.stringify(this.vacancyForm.value));
+    if (this.vacancyForm.invalid) { return; }
+
+    let fValue = this.vacancyForm.value;
+    fValue = this.vacancyForm.value;
+    let req = fValue;
+
+    req['beginDateTime'] = this.mergeDates(req['beginDate'], req['beginTime']),
+    req['endDateTime'] = this.mergeDates(req['beginDate'], req['endTime']),
+
+    // Delete unnecessary values
+    delete req['beginDate'];
+    delete req['beginTime'];
+    delete req['endTime'];
+
+    req = JSON.stringify(req);
+
+    console.log(req);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      }),
+    };
+
+    this.http.post(
+      `${this.apiUri}/vacancy/add`, JSON.stringify(req), httpOptions)
+        .subscribe(
+          (data) => {
+            console.log('POST Request is successful ', data);
+          },
+          (error) => {
+            console.log('Error', error);
+          },
+        );
   }
 }

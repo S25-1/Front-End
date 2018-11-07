@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vacancy, JobType } from './vacancy';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -73,6 +73,21 @@ export class AddVacancyComponent implements OnInit {
 
     console.log(req);
 
-    this.http.post(`${this.apiUri}/vacancy/add`, JSON.stringify(req));
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      }),
+    };
+
+    this.http.post(
+      `${this.apiUri}/vacancy/add`, JSON.stringify(req), httpOptions)
+        .subscribe(
+          (data) => {
+            console.log('POST Request is successful ', data);
+          },
+          (error) => {
+            console.log('Error', error);
+          },
+        );
   }
 }

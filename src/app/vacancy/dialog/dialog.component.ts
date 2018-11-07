@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, FormsModule } from '@angular/forms';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-dialog',
@@ -9,25 +9,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DialogComponent implements OnInit {
 
-  userId = new FormControl('');
-  vacancyId = new FormControl('1');
+  constructor(
+    private http: HttpClient,
+    public dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
 
-  dialogForm: FormGroup = this.formBuilder.group({
-    userId: this.userId,
-    vacancyId: this.vacancyId,
-  });
-
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  userID: string;
+  vacancyID: string;
 
   ngOnInit() {
-    // this.dialogForm = this.formBuilder.group(this.dialogGroup);
+    console.log(this.data);
   }
 
-  submitApplication() {
-    let fValue = this.dialogForm.value;
-    fValue = this.dialogForm.value;
-
-    console.log(this.dialogForm.value);
+  submitApplication(accepted: boolean) {
+    // console.log(this.data);
 
     // this.http.post(
     //   'https://cgi-group1.azurewebsites.net/api/vacancy/addaccepteduser',

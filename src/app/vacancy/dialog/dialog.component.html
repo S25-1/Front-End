@@ -8,26 +8,14 @@
   <p> Experience: {{ data.Experience }} Months</p>
 </div>
 
-<div [formGroup]="dialogForm">
- <form  (ngSubmit)="submitApplication()"> 
-
-  <input placeholder="User ID" type="number" id="userId" required formControlName="userId">
+<div>
+ <form> 
+  <input placeholder="User ID" type="number" id="userId" required>
 
   <div class="reply-buttons-flex">
     <!-- <button class="reply-button mat-button-reject" mat-raised-button>Reject</button> -->
-    <button class="reply-button mat mat-button-accept" mat-raised-button type="submit">Apply</button> 
+    <button class="reply-button mat mat-button-accept" mat-raised-button (click)="submitApplication(true)">Apply</button> 
   </div>
 
   </form> 
 </div>
-
-<<<<<<< HEAD
-   
-=======
-<h3> {{ data.Name }} </h3>
-<p> Start Date: {{ data.Date | date:'dd-MM-yy' }} </p>
-<p> Start Time: {{ data.Date | date:'hh:mm' }} </p>
-<p> Experience: {{ data.SkillTypeName }} Months</p>
->>>>>>> d8f8130248088dcff0dd46d62c7130c2ab3dc578
-
-    

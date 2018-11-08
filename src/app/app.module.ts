@@ -17,7 +17,6 @@ import { VacancyModule } from './vacancy/vacancy.module';
 import { VacancyService } from './vacancy/vacancy.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { VacancyService } from './vacancy.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import '@material/chips';
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({

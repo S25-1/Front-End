@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddEmployeeComponent } from './add-employee.component';
+import { UploadPictureComponent } from './upload-picture/upload-picture.component';
+import { MaterialModule } from '../material/material.module';
 
 describe('AddemployeeComponent', () => {
   let component: AddEmployeeComponent;
@@ -8,7 +10,13 @@ describe('AddemployeeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AddEmployeeComponent],
+      declarations: [
+        AddEmployeeComponent,
+        UploadPictureComponent,
+      ],
+      imports: [
+        MaterialModule,
+      ],
     })
     .compileComponents();
   }));

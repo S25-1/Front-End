@@ -1,0 +1,20 @@
+<!-- <script>
+var app = angular.module("MY_APP", []);
+app.controller("MyCtrl", function($scope) {
+  $scope.submitted = false;
+  $scope.edit = false;
+
+  $scope.submit = function(people){
+    $scope.edit = false;
+    $scope.submitted = false;
+  }
+});
+  </script> -->
+
+     <h2 class="name"><span ng-if="View">{{ data.Job }}</span><input ng-if="Edit" value="{{ data.Job }}"></h2>
+     <span class="title"><span ng-if="View">{{ data.Date }}<input ng-if="Edit" value="{{ data.Date }}"></span></span><br/><br/>
+     <span class="date"><span ng-if="View">{{ data.Experience }} <input ng-if="Edit" value="{{ data.Experience }}"></span></span>
+      <button ng-click="edit = false"type="submit">Submit</button>
+
+
+

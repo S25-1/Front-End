@@ -1,6 +1,6 @@
 mat-form-field {
     width: 20vw;
-    margin: 15px;
+    margin: 10px 15px 10px 15px;
 }
 
 @media (max-width: 700px)
@@ -8,4 +8,44 @@ mat-form-field {
     mat-form-field {
         width: 90vw;
     }
+}
+
+.mat-form-field-flex{
+    padding-top: -12px;
+}
+
+.mat-form-field-infix{
+    border-top: -13.5px;
+}
+
+#nameField{
+    display: block;
+    width: 42vw;
+}
+
+// #jobFields{
+//     display: block;
+// }
+
+#dateField{
+    display: block;
+    width: 42vw;
+}
+
+#timeFields{
+    display: block;
+}
+
+#skillField{
+    display: block;
+    width: 42vw;
+}
+
+#experienceField{
+    display: block;
+    width: 42vw;
+}
+
+#postButton{
+    margin-left: 15px;
 }

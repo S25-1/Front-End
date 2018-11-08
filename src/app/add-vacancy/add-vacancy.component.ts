@@ -69,17 +69,13 @@ export class AddVacancyComponent implements OnInit {
     delete req['beginTime'];
     delete req['endTime'];
 
-    req = JSON.stringify(req);
-
-    console.log(req);
-
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       }),
     };
 
-    this.http.post(
+    this.http.post<any>(
       `${this.apiUri}/vacancy/add`, JSON.stringify(req), httpOptions)
         .subscribe(
           (data) => {

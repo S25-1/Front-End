@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { VacancyService } from './vacancy.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
@@ -19,12 +18,12 @@ export class VacancyComponent implements OnInit{
       .subscribe(data => this.vacancies = data);
   }
 
-  openDialog(name, startdate, experience, enddate, vacancyid, skilltypeName): void {
+  openDialog(name, startdate, experience, enddate, vacancyid, skilllist): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       height: '400px',
       width: '600px',
       data: { Name: name, StartDate: startdate, Experience: experience,
-        EndDate: enddate, VacancyID: vacancyid, SkillTypeName: skilltypeName },
+        EndDate: enddate, VacancyID: vacancyid, SkillList: skilllist },
       autoFocus: false,
     });
 

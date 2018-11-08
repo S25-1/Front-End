@@ -1,21 +1,37 @@
+<style>
+.capitalize {
+    text-transform: capitalize;
+ }
+  .left { width: 39%; float:left; text-align:left; }
+  .right { width: 39%; float:right; text-align:left;  }
+  .container { margin:auto; display:inline;}
+ </style>
 <div class="header">
-    <h1>Vacancy</h1>
 </div>
 <div>
-  <h3> {{ data.Name }} </h3>
-  <p> Date: {{ data.StartDate | date:'dd-MM-yy' }} </p>
-  <p> Time: {{ data.StartDate | date:'hh:mm' }} </p>
-  <p> Experience: {{ data.Experience }} Months</p>
+  <h4> {{ data.Name }} </h4>
+  <div class='container'>
+  <div class='left'>Start Date: {{ data.StartDate | date:'dd-MM-yy' }}<br/>
+    Start Time: {{ data.StartDate | date:'hh:mm' }}
+  </div>
+  <div class='right'>
+  End Date: {{ data.EndDate | date:'dd-MM-yy' }}<br/>
+  End Time: {{ data.EndDate | date:'hh:mm' }}
+  </div><br/><br/>
+  <p>Required skills: </p>
+  <mat-chip-list>
+      <div *ngFor="let skillItem of data.SkillList">
+          <mat-chip class="capitalize">{{ skillItem.SkillTypeName }}</mat-chip>
+      </div>
+  </mat-chip-list>
+  <p> Required work experience: {{ data.Experience }} Months</p>
 </div>
-
 <div>
  <!-- <form>  -->
   <!-- <input placeholder="User ID" type="number" id="userId" required> -->
-
   <div class="reply-buttons-flex">
-    <!-- <button class="reply-button mat-button-reject" mat-raised-button>Reject</button> -->
+    <!-- <button class="reply-button mat-button-reject" mat-raised-button (click)="submitApplication(false)">Reject</button> -->
     <button class="reply-button mat mat-button-accept" mat-raised-button (click)="submitApplication(true)">Apply</button> 
   </div>
-
   <!-- </form>  -->
 </div>

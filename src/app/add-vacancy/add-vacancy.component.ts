@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Vacancy, JobType } from './vacancy';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -19,8 +20,13 @@ export class AddVacancyComponent implements OnInit {
   // Form Tests
   vacancyForm: FormGroup;
   submitted = false;
+  submitSuccess: boolean;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    public snackBar: MatSnackBar,
+    ) { }
 
   ngOnInit() {
     this.vacancyForm = this.formBuilder.group({
@@ -55,7 +61,27 @@ export class AddVacancyComponent implements OnInit {
   }
 
   submitVacancy() {
-    if (this.vacancyForm.invalid) { return; }
+    let snackBarRef = this.snackBar;
+
+    if (this.vacancyForm.invalid) {
+      snackBarRef.openFromComponent(SubmitSnackbar, {
+        data: {
+          submit : false,
+          message: 'Please fill in all required fields',
+        },
+        duration: 2000,
+      });
+
+      return;
+    }
+
+    snackBarRef.openFromComponent(SubmitSnackbar, {
+      data: {
+        submit : true,
+        posted: false,
+        message : 'Posting your vacancy',
+      },
+    });
 
     let fValue = this.vacancyForm.value;
     fValue = this.vacancyForm.value;
@@ -80,10 +106,40 @@ export class AddVacancyComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log('POST Request is successful ', data);
+            snackBarRef.openFromComponent(SubmitSnackbar, {
+              data: {
+                submit : true,
+                posted: true,
+                message : 'Your vacancy is posted.',
+              },
+              duration: 5000,
+            });
           },
           (error) => {
             console.log('Error', error);
+            snackBarRef.openFromComponent(SubmitSnackbar, {
+              data: {
+                submit : false,
+                posted: false,
+                message : 'An error occured while adding your vacancy.',
+              },
+              duration: 5000,
+            });
           },
         );
+  }
+}
+
+@Component({
+  selector: 'vacancy-submit-snack-bar',
+  templateUrl: './vacancy-submit.html',
+  styleUrls: ['./vacancy-submit.scss'],
+})
+
+export class SubmitSnackbar implements OnInit {
+
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
+
+  ngOnInit() {
   }
 }

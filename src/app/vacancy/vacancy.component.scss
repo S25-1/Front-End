@@ -21,6 +21,8 @@ $margin: 20px;
     display: flex;
     flex-direction: column;
     width: $width;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
     
     div {
         display: flex;

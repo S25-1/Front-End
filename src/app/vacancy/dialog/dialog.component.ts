@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-dialog',
@@ -9,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 })
 export class DialogComponent implements OnInit {
 
-  apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
+  // apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
 
   constructor(
     private http: HttpClient,
@@ -41,7 +42,7 @@ export class DialogComponent implements OnInit {
     };
 
     this.http.post(
-      `${this.apiUri}/vacancy/addaccepteduser`, JSON.stringify(req), httpOptions)
+      `${environment.apiUri}/vacancy/addaccepteduser`, JSON.stringify(req), httpOptions)
         .subscribe(
           (data) => {
             console.log('POST Request is successful ', data);

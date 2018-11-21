@@ -1,21 +1,16 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { VacancyService } from './vacancy.service';
-import { Observable } from 'rxjs';
-// import { VACANCYLIST } from './vacancyList';
-
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
-  selector: 'app-vacancy',
+  selector: 'vacancy',
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.scss'],
 })
 export class VacancyComponent implements OnInit{
   // vacancylist = VACANCYLIST;
   public vacancies = [];
-
   constructor(public dialog: MatDialog, private vacancyService: VacancyService) {}
 
   ngOnInit() {
@@ -23,30 +18,17 @@ export class VacancyComponent implements OnInit{
       .subscribe(data => this.vacancies = data);
   }
 
-  openDialog(job, date, experience): void {
-    const dialogRef = this.dialog.open(VacancyDialog, {
+  openDialog(name, startdate, experience, enddate, vacancyid, skilllist): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
       height: '400px',
       width: '600px',
-      data: { Job: job, Date: date, Experience: experience },
+      data: { Name: name, StartDate: startdate, Experience: experience,
+        EndDate: enddate, VacancyID: vacancyid, SkillList: skilllist },
       autoFocus: false,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-    });
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   console.log(result);
+    // });
   }
-}
-
-// Dialog Component
-
-@Component({
-  selector: 'vacancy-dialog-employee',
-  templateUrl: 'vacancy-dialog-employee.html',
-  styleUrls: ['vacancy-dialog-employee.scss'],
-})
-export class VacancyDialog {
-  constructor(
-    public dialogRef: MatDialogRef<VacancyDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
-
 }

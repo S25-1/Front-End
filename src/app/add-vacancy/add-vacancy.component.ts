@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Vacancy, JobType } from './vacancy';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -10,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AddVacancyComponent implements OnInit {
   // TODO: Add base URI
-  apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
+  // apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
 
   newVacancy: Vacancy = new Vacancy();
   jobTypeItems = this.newVacancy.getJobTypes();
@@ -19,8 +21,13 @@ export class AddVacancyComponent implements OnInit {
   // Form Tests
   vacancyForm: FormGroup;
   submitted = false;
+  submitSuccess: boolean;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    public snackBar: MatSnackBar,
+    ) { }
 
   ngOnInit() {
     this.vacancyForm = this.formBuilder.group({
@@ -55,7 +62,27 @@ export class AddVacancyComponent implements OnInit {
   }
 
   submitVacancy() {
-    if (this.vacancyForm.invalid) { return; }
+    let snackBarRef = this.snackBar;
+
+    if (this.vacancyForm.invalid) {
+      snackBarRef.openFromComponent(SubmitSnackbar, {
+        data: {
+          submit : false,
+          message: 'Please fill in all required fields',
+        },
+        duration: 2000,
+      });
+
+      return;
+    }
+
+    snackBarRef.openFromComponent(SubmitSnackbar, {
+      data: {
+        submit : true,
+        posted: false,
+        message : 'Posting your vacancy',
+      },
+    });
 
     let fValue = this.vacancyForm.value;
     fValue = this.vacancyForm.value;
@@ -69,25 +96,51 @@ export class AddVacancyComponent implements OnInit {
     delete req['beginTime'];
     delete req['endTime'];
 
-    req = JSON.stringify(req);
-
-    console.log(req);
-
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       }),
     };
 
-    this.http.post(
-      `${this.apiUri}/vacancy/add`, JSON.stringify(req), httpOptions)
+    this.http.post<any>(
+      `${environment.apiUri}/vacancy/add`, JSON.stringify(req), httpOptions)
         .subscribe(
           (data) => {
             console.log('POST Request is successful ', data);
+            snackBarRef.openFromComponent(SubmitSnackbar, {
+              data: {
+                submit : true,
+                posted: true,
+                message : 'Your vacancy is posted.',
+              },
+              duration: 5000,
+            });
           },
           (error) => {
             console.log('Error', error);
+            snackBarRef.openFromComponent(SubmitSnackbar, {
+              data: {
+                submit : false,
+                posted: false,
+                message : 'An error occured while adding your vacancy.',
+              },
+              duration: 5000,
+            });
           },
         );
+  }
+}
+
+@Component({
+  selector: 'vacancy-submit-snack-bar',
+  templateUrl: './vacancy-submit.html',
+  styleUrls: ['./vacancy-submit.scss'],
+})
+
+export class SubmitSnackbar implements OnInit {
+
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
+
+  ngOnInit() {
   }
 }

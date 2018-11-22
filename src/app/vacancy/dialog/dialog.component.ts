@@ -19,10 +19,55 @@ export class DialogComponent implements OnInit {
 
   userID: string = '2';
   vacancyID: string;
+  statusID: string = '1';
+
+  startDate;
+  endDate;
+  dateString: string = '';
+
+  options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   ngOnInit() {
     console.log(this.data);
     this.vacancyID = this.data.VacancyID;
+    this.startDate = new Date(this.data.StartDate);
+    this.endDate = new Date(this.data.EndDate);
+    console.log(this.startDate.toLocaleDateString());
+    console.log(this.endDate.toLocaleDateString());
+    this.getDateSpan();
+  }
+
+  getDateSpan() {
+    console.log(this.startDate.getFullYear());
+    console.log(this.endDate.getFullYear());
+
+    if (this.startDate.getFullYear() === this.endDate.getFullYear()) {
+      if (this.startDate.getMonth() === this.endDate.getMonth()) {
+        this.dateString += `${this.getMonthName(this.startDate.getMonth())} `;
+      }
+      this.dateString += `${this.startDate.getFullYear().toString()} `;
+    } else {
+      this.dateString = `${this.startDate.toLocaleDateString('en-US', this.options)} -
+       ${this.endDate.toLocaleDateString('en-US', this.options)}`;
+    }
+  }
+
+  getMonthName(monthNumber) {
+    var month = [];
+    month[0] = 'January';
+    month[1] = 'February';
+    month[2] = 'March';
+    month[3] = 'April';
+    month[4] = 'May';
+    month[5] = 'June';
+    month[6] = 'July';
+    month[7] = 'August';
+    month[8] = 'September';
+    month[9] = 'October';
+    month[10] = 'November';
+    month[11] = 'December';
+
+    return month[monthNumber];
   }
 
   submitApplication(accepted: boolean) {
@@ -32,7 +77,7 @@ export class DialogComponent implements OnInit {
     let req: VacancyApplication = {
       userID: `${this.userID}`,
       vacancyID: `${this.vacancyID}`,
-      Accepted: `${accepted}`,
+      statusID: `${this.statusID}`,
     };
 
     const httpOptions = {
@@ -57,5 +102,5 @@ export class DialogComponent implements OnInit {
 interface VacancyApplication {
   userID: string;
   vacancyID: string;
-  Accepted: string;
+  statusID: string;
 }

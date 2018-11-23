@@ -11,14 +11,11 @@ build:
 deploy:
   # Deploy master branch
   - provider: script
-  script: bash deploy_scripts/master.sh
-  on:
-    branch: master
+    script: bash deploy_scripts/master.sh
+    on:
+      branch: master
   # Deploy job branch
   - provider: script
-  script: bash deploy_scripts/job.sh
-  on:
-    branch: job
-
-# deploy_to_firebase:
-# - firebase deploy --token ${FIREBASE_TOKEN}
+    script: bash deploy_scripts/job.sh
+    on:
+      branch: job

@@ -3,10 +3,10 @@ node_js:
   - "node"
 dist: trusty
 sudo: required
-install_dependencies:
+before_script:
   - npm install -g @angular/cli
   - npm install -g firebase-tools
-build:
+script:
 - ng build --prod
 deploy:
   # Deploy master branch

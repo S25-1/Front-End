@@ -1,5 +1,26 @@
 {
   "projects": {
     "default": "cgi-fontys-firebase"
+  },
+  "targets": {
+    "cgi-fontys-firebase": {
+      "hosting": {
+        "master-cgi": [
+          "cgi-fontys-firebase"
+        ],
+        "staging-cgi": [
+          "stagingcgi"
+        ],
+        "job-cgi": [
+          "jobcgi"
+        ],
+        "sebastiaan-cgi": [
+          "sebastiaancgi"
+        ],
+        "sander-cgi": [
+          "sandercgi"
+        ]
+      }
+    }
   }
 }

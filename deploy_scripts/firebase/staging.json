@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "staging-cgi",
     "public": "dist/cgi",
     "ignore": [
       "firebase.json",

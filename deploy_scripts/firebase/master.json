@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "target": "master-cgi",
+    "public": "dist/cgi",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -3,10 +3,22 @@ node_js:
   - "node"
 dist: trusty
 sudo: required
-before_script:
+install_dependencies:
   - npm install -g @angular/cli
   - npm install -g firebase-tools
-script:
+build:
 - ng build --prod
-after_success:
-- firebase deploy --token ${FIREBASE_TOKEN}
+deploy:
+  # Deploy master branch
+  - provider: script
+  script: bash deploy_scripts/master.sh
+  on:
+    branch: master
+  # Deploy job branch
+  - provider: script
+  script: bash deploy_scripts/job.sh
+  on:
+    branch: job
+
+# deploy_to_firebase:
+# - firebase deploy --token ${FIREBASE_TOKEN}

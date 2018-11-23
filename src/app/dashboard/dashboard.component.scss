@@ -32,12 +32,15 @@ $margin: 10px;
     .top-div {
         height: $height;
         width: $width;
+        
+        mat-icon {
+            font-size: 175px;
+            height: unset;
+            width: unset;
+        }
     }
 }
-.image{
-    min-width:175px;
-    min-height:175px;
-}
+
 
 .bottom-div{
     background-color: #F2F2F2F2;

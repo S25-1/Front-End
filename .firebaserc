@@ -5,19 +5,19 @@
   "targets": {
     "cgi-fontys-firebase": {
       "hosting": {
-        "master-cgi": [
+        "master": [
           "cgi-fontys-firebase"
         ],
-        "staging-cgi": [
+        "staging": [
           "stagingcgi"
         ],
-        "job-cgi": [
+        "job": [
           "jobcgi"
         ],
-        "sebastiaan-cgi": [
+        "sebastiaan": [
           "sebastiaancgi"
         ],
-        "sander-cgi": [
+        "sander": [
           "sandercgi"
         ]
       }

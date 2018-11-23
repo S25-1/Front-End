@@ -10,4 +10,4 @@ before_script:
 script:
 - ng build --prod
 after_success:
-- firebase deploy --token ${FIREBASE_TOKEN} --only hosting:${TRAVIS_BRANCH}-cgi
+- firebase deploy --token ${FIREBASE_TOKEN} --only hosting:${TRAVIS_BRANCH}

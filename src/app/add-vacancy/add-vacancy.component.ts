@@ -3,6 +3,7 @@ import { Vacancy, JobType } from './vacancy';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-add-vacancy',
@@ -11,7 +12,7 @@ import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material';
 })
 export class AddVacancyComponent implements OnInit {
   // TODO: Add base URI
-  apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
+  // apiUri: string = 'https://cgi-group1.azurewebsites.net/api';
 
   newVacancy: Vacancy = new Vacancy();
   jobTypeItems = this.newVacancy.getJobTypes();
@@ -102,7 +103,7 @@ export class AddVacancyComponent implements OnInit {
     };
 
     this.http.post<any>(
-      `${this.apiUri}/vacancy/add`, JSON.stringify(req), httpOptions)
+      `${environment.apiUri}/vacancy/add`, JSON.stringify(req), httpOptions)
         .subscribe(
           (data) => {
             console.log('POST Request is successful ', data);

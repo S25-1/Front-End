@@ -1,1 +1,0 @@
-firebase deploy --token ${FIREBASE_TOKEN} --only hosting:${TRAVIS_BRANCH}

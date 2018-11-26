@@ -10,5 +10,8 @@ before_script:
 script:
   - ng build --prod
 deploy:
+  skip_cleanup: true
   provider: script
-  script: bash deploy.sh
+  script: firebase deploy --token ${FIREBASE_TOKEN} --only hosting:${TRAVIS_BRANCH}
+  on:
+    all_branches: true

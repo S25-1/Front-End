@@ -21,53 +21,43 @@ export class DialogComponent implements OnInit {
   vacancyID: string;
   statusID: string = '1';
 
+  dateIcon: string = 'date_range';
+
   startDate;
   endDate;
   dateString: string = '';
 
-  options = { year: 'numeric', month: 'long', day: 'numeric' };
+  optionsDayMonthYear = { year: 'numeric', month: 'long', day: 'numeric' };
+  optionsMonthYear = { year: 'numeric', month: 'long' };
+  optionsDayMonth = { month: 'long', day: 'numeric' };
+  optionsDay = { day: 'numeric' };
 
   ngOnInit() {
     console.log(this.data);
     this.vacancyID = this.data.VacancyID;
     this.startDate = new Date(this.data.StartDate);
     this.endDate = new Date(this.data.EndDate);
-    console.log(this.startDate.toLocaleDateString());
-    console.log(this.endDate.toLocaleDateString());
     this.getDateSpan();
   }
 
   getDateSpan() {
-    console.log(this.startDate.getFullYear());
-    console.log(this.endDate.getFullYear());
-
     if (this.startDate.getFullYear() === this.endDate.getFullYear()) {
       if (this.startDate.getMonth() === this.endDate.getMonth()) {
-        this.dateString += `${this.getMonthName(this.startDate.getMonth())} `;
+        if (this.startDate.getDay() === this.endDate.getDay()) {
+          this.dateString += this.startDate.toLocaleDateString('en-NL', this.optionsDayMonthYear);
+          this.dateIcon = 'today';
+        } else {
+          this.dateString += `${this.startDate.toLocaleDateString('en-NL', this.optionsDay)} -
+           ${this.endDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)}`;
+        }
+      } else {
+        this.dateString += `${this.startDate.toLocaleDateString('en-NL', this.optionsDayMonth)} -
+         ${this.endDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)}`;
       }
-      this.dateString += `${this.startDate.getFullYear().toString()} `;
     } else {
-      this.dateString = `${this.startDate.toLocaleDateString('en-US', this.options)} -
-       ${this.endDate.toLocaleDateString('en-US', this.options)}`;
+      this.dateString = `${this.startDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)} -
+       ${this.endDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)}`;
     }
-  }
-
-  getMonthName(monthNumber) {
-    var month = [];
-    month[0] = 'January';
-    month[1] = 'February';
-    month[2] = 'March';
-    month[3] = 'April';
-    month[4] = 'May';
-    month[5] = 'June';
-    month[6] = 'July';
-    month[7] = 'August';
-    month[8] = 'September';
-    month[9] = 'October';
-    month[10] = 'November';
-    month[11] = 'December';
-
-    return month[monthNumber];
   }
 
   submitApplication(accepted: boolean) {

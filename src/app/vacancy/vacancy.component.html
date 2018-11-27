@@ -1,4 +1,4 @@
-<span *ngIf="vacancies.length !== 0"><h1>Open Vacatures</h1></span>
+<span *ngIf="vacancies.length !== 0"><h1>Vacancies</h1></span>
 <div *ngIf="vacancies.length !== 0" class="grid-container"> 
   <a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.name, vacancy.date_begin, vacancy.minExperience, vacancy.date_end, vacancy.vacancyID, vacancy.skillList)" >
     <div class="top-div">

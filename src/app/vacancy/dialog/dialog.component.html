@@ -1,14 +1,13 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
  rel="stylesheet">
 <div class="header">
-    <a onclick=""><i class="material-icons">highlight_off</i></a>
+    <h2>Accept Vacancy?</h2>
+    <!-- <a onclick=""><i class="material-icons">highlight_off</i></a> -->
 </div>
 <div>
-  <h4> {{ data.Name }} </h4>
+  <p> {{ data.Name }} </p>
   <div class='date'>
-    <i class="material-icons">date_range</i>
-    <!-- {{ data.StartDate | date:'dd-MM-yy' }}
-    {{ data.EndDate | date:'dd-MM-yy' }} -->
+    <i class="material-icons">{{ this.dateIcon }}</i>
     {{ this.dateString }} 
   </div>
   <br/>
@@ -30,7 +29,11 @@
   </div>
 
   <div>
+      
     <div class="reply-buttons-flex">
+      <button class="mdc-button--raised">
+        Button
+      </button>
       <!-- <button class="reply-button mat-button-reject" mat-raised-button (click)="submitApplication(false)">Reject</button> -->
       <button class="reply-button mat mat-button-accept" mat-raised-button (click)="submitApplication(true)">Apply</button> 
     </div>

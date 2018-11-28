@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
+    public authService: AuthService,
     ) { }
 
   credentialsForm: FormGroup;
@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
       email: ['something@mail.com'],
       password: ['sexyAnd@securePass12'],
     });
-
-    console.log(this.authService.isLoggedIn());
   }
 
   login() {

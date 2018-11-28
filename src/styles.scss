@@ -2,22 +2,6 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
-// TODO: Remove Bootstrap dependencies 
-// Import Bootstrap grid
-// @import "~bootstrap/scss/functions";
-// @import "~bootstrap/scss/variables";
-// @import "~bootstrap/scss/mixins";
-// @import "~bootstrap/scss/grid"; 
-
-/* 
-    @import "~bootstrap/scss/reboot"; 
-    Bootstrap reboot messes up some of the standard Material Styling so it is disabled.
-*/
-
-// Import own variables
-@import 'assets/colours';
-@import 'assets/variables';
-
 body { 
     font-family: Roboto, Arial, sans-serif;
     margin: 0;

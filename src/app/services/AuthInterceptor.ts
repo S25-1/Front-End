@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>,
@@ -17,8 +19,10 @@ export class AuthInterceptor implements HttpInterceptor {
       });
 
       return next.handle(cloned);
-    } else {
-      return next.handle(req);
     }
+
+    // send empty request if not logged in
+    console.log('Client is not logged in');
+    return next.handle(req);
   }
 }

@@ -1,6 +1,8 @@
 import * as moment from 'moment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -9,24 +11,31 @@ import { environment } from '../../environments/environment';
 export class AuthService {
   constructor(private http: HttpClient) { }
 
+  private jwtHelper = new JwtHelperService();
+
   login(email: string, password: string) {
     return this.http.post<any>(`${environment.apiUri}/account/login`, { email, password })
       .subscribe((data) => {
-        console.log(data);
+        // Set session vars
+        this.setSession(data.token);
+
+        // Log vars
+        // console.log(this.jwtHelper.decodeToken(data.token));
       });
   }
 
   register(email: string, password: string) {
     return this.http.post<any>(`${environment.apiUri}/account/register`, { email, password })
       .subscribe((data) => {
-        console.log(data);
+        // Set session vars
+        this.setSession(this.jwtHelper.decodeToken(data.token));
       });
   }
 
-  private setSession(authResult) {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
+  private setSession(token) {
+    const expiresAt = moment().add(this.jwtHelper.decodeToken(token).expiresIn, 'second');
 
-    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('id_token', token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
 

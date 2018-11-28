@@ -21,19 +21,25 @@ export class LoginComponent implements OnInit {
       email: ['something@mail.com'],
       password: ['sexyAnd@securePass12'],
     });
+
+    console.log(this.authService.isLoggedIn());
   }
 
-  submitLoginForm() {
+  login() {
     this.authService.login(
       this.credentialsForm.value['email'],
       this.credentialsForm.value['password'],
       );
   }
 
-  submitRegisterForm() {
+  register() {
     this.authService.register(
       this.credentialsForm.value['email'],
       this.credentialsForm.value['password'],
       );
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

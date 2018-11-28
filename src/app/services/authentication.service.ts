@@ -13,7 +13,7 @@ export class AuthService {
 
   private jwtHelper = new JwtHelperService();
 
-  login(email: string, password: string) {
+  public login(email: string, password: string) {
     return this.http.post<any>(`${environment.apiUri}/account/login`, { email, password })
       .subscribe((data) => {
         // Set session vars
@@ -24,7 +24,7 @@ export class AuthService {
       });
   }
 
-  register(email: string, password: string) {
+  public register(email: string, password: string) {
     return this.http.post<any>(`${environment.apiUri}/account/register`, { email, password })
       .subscribe((data) => {
         // Set session vars
@@ -33,26 +33,28 @@ export class AuthService {
   }
 
   private setSession(token) {
-    const expiresAt = moment().add(this.jwtHelper.decodeToken(token).expiresIn, 'second');
+    // console.log(this.jwtHelper.decodeToken(token));
+    const expiresAt = moment().add(this.jwtHelper.decodeToken(token).exp);
 
     localStorage.setItem('id_token', token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt));
   }
 
-  logout() {
+  public logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
   }
 
-  public isLoggedIn() {
+  public isLoggedIn():boolean {
+    // console.log(moment().isBefore(this.getExpiration()));
     return moment().isBefore(this.getExpiration());
   }
 
-  isLoggedOut() {
+  public isLoggedOut():boolean {
     return !this.isLoggedIn();
   }
 
-  getExpiration() {
+  private getExpiration() {
     const expiration = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);

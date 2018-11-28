@@ -9,6 +9,7 @@
     <input matInput type="password" name="password" formControlName="password">
   </mat-form-field>
 
-  <button mat-raised-button (click)="submitLoginForm()">Login</button>
-  <button mat-raised-button (click)="submitRegisterForm()" disabled>Register</button>
+  <button mat-raised-button (click)="login()" *ngIf="!authService.isLoggedIn()">Login</button>
+  <button mat-raised-button (click)="register()" disabled>Register</button>
+  <button mat-raised-button (click)="logout()" *ngIf="authService.isLoggedIn()">Logout</button>
 </form>

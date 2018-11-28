@@ -28,14 +28,10 @@
     <p> Required work experience: {{ data.Experience }} Months</p>
   </div>
 
-  <div>
-      
+  <div>  
     <div class="reply-buttons-flex">
-      <button class="mdc-button--raised">
-        Button
-      </button>
-      <!-- <button class="reply-button mat-button-reject" mat-raised-button (click)="submitApplication(false)">Reject</button> -->
-      <button class="reply-button mat mat-button-accept" mat-raised-button (click)="submitApplication(true)">Apply</button> 
+      <button class="reply-button mat" mat-button color="primary">CANCEL</button>
+      <button class="reply-button mat" mat-raised-button (click)="submitApplication(true)" color="primary">ACCEPT</button> 
     </div>
   </div>
 </div>

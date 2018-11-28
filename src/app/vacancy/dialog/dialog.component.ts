@@ -87,6 +87,10 @@ export class DialogComponent implements OnInit {
           },
         );
   }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }
 
 interface VacancyApplication {

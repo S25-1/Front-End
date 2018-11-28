@@ -1,18 +1,18 @@
 <div class="grid-container">
-  <a routerLink="/addemployee" class="papers">
+  <a *ngIf='userrole === "Employer"' routerLink="/addemployee" class="papers">
     <div class="top-div">
     <img class="image" src="\assets\dashboard_img\add_image.svg">
     </div>
     <div class="bottom-div">
       <span>
-        Add Employee
+        Add Employees
       </span>  
     </div>
   </a>
   <a routerLink="/vacancy"vacancy class="papers" >
     <div class="top-div">
     <img class="image" src="\assets\dashboard_img\vacature.svg">
-    </div>
+    </div>  
     <div class="bottom-div">
       <span>
         List Vacancies

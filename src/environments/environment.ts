@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   // apiUri: 'https://localhost:44354/api',
   // apiUri: 'https://cgi-group1.azurewebsites.net/api',
-  apiUri: 'https://api.fontys.me/api',
+  // apiUri: 'https://api.fontys.me/api',
+  apiUri: 'https://cgiapirework-db.azurewebsites.net/api',
 };
 
 /*

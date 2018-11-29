@@ -2,7 +2,7 @@
 <div *ngIf="vacancies.length !== 0" class="grid-container"> 
   <a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.name, vacancy.date_begin, vacancy.minExperience, vacancy.date_end, vacancy.vacancyID, vacancy.skillList)" >
     <div class="top-div">
-      <img class="image" src="\assets\calender.svg">
+      <img class="image" src="/assets/calender.svg">
       <span>
         <b>{{ vacancy.name }}</b>
       </span>

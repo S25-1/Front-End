@@ -30,10 +30,14 @@ $margin: 20px;
         justify-content: left;
     }
 
+    .top-div,
+    .bottom-div{
+        cursor: pointer;
+    }
+
     .top-div {
         height: $height;
-        width: $width;
-        cursor: pointer;
+        width: $width;       
     }
 }
 .image{

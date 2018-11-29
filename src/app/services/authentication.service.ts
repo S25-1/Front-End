@@ -17,7 +17,7 @@ export class AuthService {
     return this.http.post<any>(`${environment.apiUri}/account/login`, { email, password })
       .subscribe((data) => {
         // Set session vars
-        this.setSession(data.token);
+        this.setSession(data.token, data.role);
 
         // Log vars
         // console.log(this.jwtHelper.decodeToken(data.token));
@@ -28,21 +28,23 @@ export class AuthService {
     return this.http.post<any>(`${environment.apiUri}/account/register`, { email, password })
       .subscribe((data) => {
         // Set session vars
-        this.setSession(this.jwtHelper.decodeToken(data.token));
+        this.setSession(this.jwtHelper.decodeToken(data.token), data.role);
       });
   }
 
-  private setSession(token) {
+  private setSession(token, userRole) {
     // console.log(this.jwtHelper.decodeToken(token));
     const expiresAt = moment().add(this.jwtHelper.decodeToken(token).exp);
 
     localStorage.setItem('id_token', token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt));
+    localStorage.setItem('role', userRole);
   }
 
   public logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('role');
   }
 
   public isLoggedIn():boolean {

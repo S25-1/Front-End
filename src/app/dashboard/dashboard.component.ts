@@ -9,6 +9,7 @@ import { NAVITEMS } from '../app-routing.module';
 export class DashboardComponent implements OnInit {
   // Set as property so it can be used in html file
   navItems = NAVITEMS;
+  public userrole : string = localStorage.getItem['role'];
 
   constructor() { }
 

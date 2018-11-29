@@ -6,10 +6,9 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class VacancyService {
-  // private url: string = 'https://localhost:44354/api/vacancy/getvacancylist';
   constructor(private http: HttpClient) {}
 
   getVacancy(): Observable<Vacancy[]> {
-    return this.http.get<Vacancy[]>(`${environment.apiUri}/vacancy/getvacancylist`);
+    return this.http.get<Vacancy[]>(`${environment.apiUri}/vacancy`);
   }
 }

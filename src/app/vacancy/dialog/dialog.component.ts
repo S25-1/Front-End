@@ -61,8 +61,6 @@ export class DialogComponent implements OnInit {
   }
 
   submitApplication(accepted: boolean) {
-    // console.log(this.data);
-
     // All values are sent as a string
     let req: VacancyApplication = {
       userID: `${this.userID}`,

@@ -1,17 +1,17 @@
 <span *ngIf="vacancies.length !== 0"><h1>Vacancies</h1></span>
 <div *ngIf="vacancies.length !== 0" class="grid-container"> 
-  <a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.name, vacancy.date_begin, vacancy.minExperience, vacancy.date_end, vacancy.vacancyID, vacancy.skillList)" >
+  <a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.name, vacancy.beginDateTime, vacancy.minimalExperience, vacancy.endDateTime, vacancy.vacancyID, vacancy.requiredSkills)" >
     <div class="top-div">
       <img class="image" src="/assets/calender.svg">
       <span>
         <b>{{ vacancy.name }}</b>
       </span>
       <span style="text-align: right;">
-        {{ vacancy.date_begin | date:'dd-MM-yy' }}
+        {{ vacancy.beginDateTime | date:'dd-MM-yy' }}
       </span>
     </div>
     <div class="bottom-div">
-      <span>{{ vacancy.date_begin | date: 'hh:mm'}} - {{ vacancy.date_end | date: 'hh:mm'}}</span>   
+      <span>{{ vacancy.beginDateTime | date: 'hh:mm'}} - {{ vacancy.endDateTime | date: 'hh:mm'}}</span>   
     <!-- <span *ngFor="let skillItem of vacancy.SkillList">{{ skillItem.SkillTypeName }}</span> -->
     </div>
   </a>  

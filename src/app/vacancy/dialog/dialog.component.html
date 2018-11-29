@@ -1,21 +1,41 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+ rel="stylesheet">
 <div class="header">
-    <h1>Vacancy</h1>
+    <h2>Accept Vacancy?</h2>
+    <!-- <a onclick=""><i class="material-icons">highlight_off</i></a> -->
 </div>
 <div>
-  <h3> {{ data.Name }} </h3>
-  <p> Date: {{ data.StartDate | date:'dd-MM-yy' }} </p>
-  <p> Time: {{ data.StartDate | date:'hh:mm' }} </p>
-  <p> Experience: {{ data.Experience }} Months</p>
-</div>
+  <p> {{ data.Name }} </p>
+  <div class='date'>
+    <i class="material-icons">{{ this.dateIcon }}</i>
+    {{ this.dateString }} 
+  </div>
+  <br/>
 
-<div>
- <form> 
-  <input placeholder="User ID" type="number" id="userId" required>
+  <div class='container'>
+    <div class='time'>
+     <i class="material-icons">schedule</i>
+     {{ data.StartDate | date:'hh:mm' }} - {{ data.EndDate | date:'hh:mm' }}
+    </div>
+    <br/>
 
-  <div class="reply-buttons-flex">
-    <!-- <button class="reply-button mat-button-reject" mat-raised-button>Reject</button> -->
-    <button class="reply-button mat mat-button-accept" mat-raised-button (click)="submitApplication(true)">Apply</button> 
+    <p>Required skills: </p>
+    <mat-chip-list>
+      <div *ngFor="let skillItem of data.SkillList">
+        <mat-chip class="capitalize">{{ skillItem.SkillTypeName }}</mat-chip>
+      </div>
+    </mat-chip-list>
+    <p> Required work experience: {{ data.Experience }} Months</p>
   </div>
 
-  </form> 
+  <div>
+      
+    <div class="reply-buttons-flex">
+      <button class="mdc-button--raised">
+        Button
+      </button>
+      <!-- <button class="reply-button mat-button-reject" mat-raised-button (click)="submitApplication(false)">Reject</button> -->
+      <button class="reply-button mat mat-button-accept" mat-raised-button (click)="submitApplication(true)">Apply</button> 
+    </div>
+  </div>
 </div>

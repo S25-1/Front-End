@@ -21,6 +21,8 @@ $margin: 20px;
     display: flex;
     flex-direction: column;
     width: $width;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
     
     div {
         display: flex;
@@ -50,4 +52,17 @@ span {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+.loading-screen {
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    
+    > * {
+        margin-top: 50px;
+    }
 }

@@ -14,13 +14,13 @@ import { environment } from '../environments/environment';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { VacancyModule } from './vacancy/vacancy.module';
-import { VacancyService } from './vacancy/vacancy.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginModule } from './login/login.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     EditvacancyComponent,
   ],
   imports: [
@@ -34,9 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddEmployeeModule,
     AddVacancyModule,
     VacancyModule,
+    LoginModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [VacancyService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,20 +1,23 @@
-<span><h1>Open Vacatures</h1></span>
-<div class="grid-container">
-<a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.Name, vacancy.Date_begin, vacancy.MinExperience, vacancy.Date_end, vacancy.VacancyID, vacancy.SkillList)" >
+<span *ngIf="vacancies.length !== 0"><h1>Vacancies</h1></span>
+<div *ngIf="vacancies.length !== 0" class="grid-container"> 
+  <a *ngFor="let vacancy of vacancies" class="papers" (click)="openDialog(vacancy.name, vacancy.date_begin, vacancy.minExperience, vacancy.date_end, vacancy.vacancyID, vacancy.skillList)" >
     <div class="top-div">
-        <img class="image" src="\assets\calender.svg">
-        <span>
-            <b>{{ vacancy.Name }}</b>
-        </span>
-        <span style="text-align: right;">
-            {{ vacancy.Date_begin | date:'dd-MM-yy' }}
-          </span>
+      <img class="image" src="\assets\calender.svg">
+      <span>
+        <b>{{ vacancy.name }}</b>
+      </span>
+      <span style="text-align: right;">
+        {{ vacancy.date_begin | date:'dd-MM-yy' }}
+      </span>
     </div>
     <div class="bottom-div">
-      <span>Experience: {{ vacancy.MinExperience }} Months</span>   
+      <span>Experience: {{ vacancy.minExperience }} Months</span>   
     <!-- <span *ngFor="let skillItem of vacancy.SkillList">{{ skillItem.SkillTypeName }}</span> -->
     </div>
   </a>  
 </div>
 
-<button (click)="test()">Paste vacancies</button>
+<div class="loading-screen" *ngIf="vacancies.length == 0">
+  <h2>Loading your vacancies</h2>
+  <mat-spinner></mat-spinner>
+</div>

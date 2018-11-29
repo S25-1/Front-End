@@ -27,5 +27,30 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-requests",
+      "urls": [
+        "https://http://cgi-group1.azurewebsites.net/api/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "1h",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    },
+    {
+      "name": "internal-pages",
+      "urls": [
+        "!/**/*.*"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "2h",
+        "strategy": "performance"
+      }
+    }
   ]
 }

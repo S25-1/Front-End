@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddVacancyComponent } from './add-vacancy.component';
+import { AddVacancyComponent, SubmitSnackbar } from './add-vacancy.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  declarations: [AddVacancyComponent],
+  declarations: [AddVacancyComponent, SubmitSnackbar],
   exports: [AddVacancyComponent],
+  entryComponents: [SubmitSnackbar],
 })
 export class AddVacancyModule { }

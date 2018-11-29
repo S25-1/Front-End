@@ -12,23 +12,23 @@ export class Vacancy {
     return JSON.parse(`
       { "jobTypes" : [
         {
-          "value"       : 1,
+          "value"       : "1",
           "placeholder" : "stock clerk"
         },
         {
-          "value"       : 2,
+          "value"       : "2",
           "placeholder" : "cashier"
         },
         {
-          "value"       : 3,
+          "value"       : "3",
           "placeholder" : "manager"
         },
         {
-          "value"       : 4,
+          "value"       : "4",
           "placeholder" : "greengrocer"
         },
         {
-          "value"       : 5,
+          "value"       : "5",
           "placeholder" : "security guard"
         }
       ]
@@ -38,23 +38,23 @@ export class Vacancy {
     return JSON.parse(`
     { "skills" : [
       {
-        "value"       : 1,
+        "value"       : "1",
         "placeholder" : "first aid"
       },
       {
-        "value"       : 2,
+        "value"       : "2",
         "placeholder" : "marketing"
       },
       {
-        "value"       : 3,
+        "value"       : "3",
         "placeholder" : "speaks English"
       },
       {
-        "value"       : 4,
+        "value"       : "4",
         "placeholder" : "speaks German"
       },
       {
-        "value"       : 5,
+        "value"       : "5",
         "placeholder" : "stock manager"
       }
     ]

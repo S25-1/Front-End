@@ -24,12 +24,42 @@
           <mat-label>Phone Number</mat-label>
           <input matInput type="tel">
         </mat-form-field>
+
         <mat-form-field appearance="standard">
           <mat-label>Home Address</mat-label>
           <input matInput>
         </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <mat-label>Email</mat-label>
+          <input matInput type="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <mat-label>Password</mat-label>
+          <input matInput type="password">
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <mat-label>Hourly Wage</mat-label>
+          <input matInput>
+        </mat-form-field>
+        
+       
+        <mat-form-field>
+          <mat-select placeholder="Job Type" [(value)]="newEmployee.jobType" formControlName="jobType">
+            <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
+              {{ jobType.placeholder | titlecase }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
       </div>
+          
+     
     </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
 
     <!-- Gegevens Werkgever -->
     <div class="col-10 col-md-5 row">

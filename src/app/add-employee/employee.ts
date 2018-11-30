@@ -1,20 +1,20 @@
 export class Employee {
-    userType: string;
-    name: string;
-    email: string;
-    password: string;
-    dateOfBirth: Date;
-    phoneNumber: string;
-    job_typeID: JobType;
-    hourly_Wage: number;
-    skillList: Skill[];
-    postal_code: string;
-    street_name: string;
-    house_number: number;
-    city: string;
-    country: string;
-    getJobTypes(): JobType[] {
-      return JSON.parse(`
+  userType: string;
+  name: string;
+  email: string;
+  password: string;
+  dateOfBirth: Date;
+  phoneNumber: string;
+  jobType: JobType;
+  hourlyWage: number;
+  skill: Skill[];
+  postalCode: string;
+  streetName: string;
+  houseNumber: number;
+  city: string;
+  country: string;
+  getJobTypes(): JobType[] {
+    return JSON.parse(`
         { "jobTypes" : [
           {
             "value"       : "1",
@@ -38,9 +38,9 @@ export class Employee {
           }
         ]
       }`).jobTypes;
-    }
-    getSkills(): Skill[] {
-      return JSON.parse(`
+  }
+  getSkills(): Skill[] {
+    return JSON.parse(`
       { "skills" : [
         {
           "value"       : "1",
@@ -64,17 +64,16 @@ export class Employee {
         }
       ]
     }`).skills;
-    }
-    // This is a bit hacky but it is easy for testing
   }
-  
-  export interface JobType {
-    value: string;
-    placeholder: string;
-  }
-  
-  export interface Skill {
-    value: string;
-    placeholder: string;
-  }
-  
+  // This is a bit hacky but it is easy for testing
+}
+
+export interface JobType {
+  value: string;
+  placeholder: string;
+}
+
+export interface Skill {
+  value: string;
+  placeholder: string;
+}

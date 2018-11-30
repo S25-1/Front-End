@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Employee, JobType, } from './employee';
+import { Employee, JobType } from './employee';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material';
@@ -24,16 +24,11 @@ export class AddEmployeeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     public snackBar: MatSnackBar,
-    ) { }
-
- 
+  ) { }
 
   // Check for mobile screens for date picker
 
   isMobile: boolean = false;
-
- 
-
 
   ngOnInit() {
     this.employeeForm = this.formBuilder.group({
@@ -43,41 +38,40 @@ export class AddEmployeeComponent implements OnInit {
       dateofbirth: [],
       dateOfBirth: [],
       phoneNumber: [],
-      address:  this.formBuilder.group({
-      street_name: [],
-      house_number: [],
-      postal_code: [],
-      city: [],
-      country: []
-       }),
+      address: this.formBuilder.group({
+        street_name: [],
+        house_number: [],
+        postal_code: [],
+        city: [],
+        country: [],
+      }),
       job: this.formBuilder.group({
-      job_typeID: []
+        job_typeID: [],
       }),
       hourly_wage: [],
       skillList: [],
-   
     });
   }
 
-   name: string;
+  name: string;
 
-   jobType: string;
+  jobType: string;
 
-   private mergeDates(dateValue: Date): string {
+  private mergeDates(dateValue: Date): string {
     const returnValue = dateValue.toISOString()
-    .replace(/[TZ]/g,'')
-    .replace('23:00:00.000','');             // Replace T an Z with spaces to make it MySQL parsabl
+      .replace(/[TZ]/g, '')
+      .replace('23:00:00.000', ''); // Replace T an Z with spaces to make it MySQL parsabl
 
     return returnValue;
   }
 
-
   submitEmployee() {
+    // tslint:disable-next-line:prefer-const
     let snackBarRef = this.snackBar;
     if (this.employeeForm.invalid) {
       snackBarRef.openFromComponent(SubmitSnackbar, {
         data: {
-          submit : false,
+          submit: false,
           message: 'Please fill in all required fields',
         },
         duration: 2000,
@@ -88,53 +82,54 @@ export class AddEmployeeComponent implements OnInit {
 
     snackBarRef.openFromComponent(SubmitSnackbar, {
       data: {
-        submit : true,
+        submit: true,
         posted: false,
-        message : 'Adding your employee',
+        message: 'Adding your employee',
       },
     });
 
     let fValue = this.employeeForm.value;
     fValue = this.employeeForm.value;
+    // tslint:disable-next-line:prefer-const
     let req = fValue;
 
     req['dateOfBirth'] = this.mergeDates(req['dateofbirth']),
-    delete req['dateofbirth'];
+      delete req['dateofbirth'];
 
     console.log(JSON.stringify(req));
 
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
       }),
     };
 
     this.http.post<any>(
       `${environment.apiUri}/employee/add`, JSON.stringify(req), httpOptions)
-        .subscribe(
-          (data) => {
-            console.log('POST Request is successful ', data);
-            snackBarRef.openFromComponent(SubmitSnackbar, {
-              data: {
-                submit : true,
-                posted: true,
-                message : 'Your employee is added.',
-              },
-              duration: 5000,
-            });
-          },
-          (error) => {
-            console.log('Error', error);
-            snackBarRef.openFromComponent(SubmitSnackbar, {
-              data: {
-                submit : false,
-                posted: false,
-                message : 'An error occured while adding an employee.',
-              },
-              duration: 5000,
-            });
-          },
-        );
+      .subscribe(
+        (data) => {
+          console.log('POST Request is successful ', data);
+          snackBarRef.openFromComponent(SubmitSnackbar, {
+            data: {
+              submit: true,
+              posted: true,
+              message: 'Your employee is added.',
+            },
+            duration: 5000,
+          });
+        },
+        (error) => {
+          console.log('Error', error);
+          snackBarRef.openFromComponent(SubmitSnackbar, {
+            data: {
+              submit: false,
+              posted: false,
+              message: 'An error occured while adding an employee.',
+            },
+            duration: 5000,
+          });
+        },
+      );
   }
 }
 

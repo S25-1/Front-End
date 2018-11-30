@@ -3,63 +3,111 @@
     <!-- Persoonsgegevens -->
     <div class="left-half">
       <div class="col-10 col-md-2">
+          <h1>Add a New Employee</h1>
           <app-upload-picture id="picture"></app-upload-picture>
       </div>
+     
       <div class="upload-picture-input-devider"></div>
+      
       <div class="left-of-picture">
-        <mat-form-field appearance="standard">
-          <mat-label>Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [matDatepicker]="dateOfBirthPicker" placeholder="Date of Birth" [min]="minDate" [max]="maxDate">
-          <mat-datepicker-toggle matSuffix [for]="dateOfBirthPicker"></mat-datepicker-toggle>
-          <mat-datepicker #dateOfBirthPicker [touchUi]="isMobile"></mat-datepicker>
-        </mat-form-field>
+        
+      
       </div>
       
     
       <div class="under-picture">
-        <mat-form-field appearance="standard">
+
+       <form (ngSubmit)="submitEmployee()" [formGroup]="employeeForm">
+
+        <mat-form-field appearance="standard" id="nameField">
+           <mat-label>Name</mat-label>
+           <input matInput formControlName="name" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="standard" id="emailField">
+           <mat-label>Email</mat-label>
+           <input matInput type="email" formControlName="email" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="standard" id="passwordField">
+           <mat-label>Password</mat-label>
+           <input matInput type="password" formControlName="password" required>
+        </mat-form-field>
+    
+        <mat-form-field id="dateOfBirthField">
+           <input matInput [matDatepicker]="dateOfBirthPicker" placeholder="Date of Birth" [min]="minDate" [max]="maxDate" formControlName="dateofbirth" required> 
+           <mat-datepicker-toggle matSuffix [for]="dateOfBirthPicker"></mat-datepicker-toggle>
+           <mat-datepicker #dateOfBirthPicker [touchUi]="isMobile"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard" id="phonenumberField">
           <mat-label>Phone Number</mat-label>
-          <input matInput type="tel">
+          <input matInput type="tel" formControlName="phoneNumber" required>
         </mat-form-field>
 
-        <mat-form-field appearance="standard">
-          <mat-label>Home Address</mat-label>
-          <input matInput>
+  <div formGroupName="address">
+        <mat-form-field appearance="standard"  id="streetnameField">
+          <mat-label> Streetname </mat-label>
+          <input matInput formControlName="street_name" required>
+        </mat-form-field>
+      
+
+        <mat-form-field appearance="standard" id="housenumberField">
+          <mat-label> House Number </mat-label>
+          <input matInput formControlName="house_number" required>
+        </mat-form-field>
+    
+          
+        <mat-form-field appearance="standard" id="postalcodeField">
+          <mat-label> Postal Code </mat-label>
+          <input matInput formControlName="postal_code" required>
+        </mat-form-field>
+      
+
+        <mat-form-field appearance="standard" id="cityField">
+          <mat-label> City </mat-label>
+          <input matInput formControlName="city" required>
         </mat-form-field>
 
-        <mat-form-field appearance="standard">
-          <mat-label>Email</mat-label>
-          <input matInput type="email">
-        </mat-form-field>
-
-        <mat-form-field appearance="standard">
-          <mat-label>Password</mat-label>
-          <input matInput type="password">
-        </mat-form-field>
-
-        <mat-form-field appearance="standard">
+      <mat-form-field appearance="standard" id="countryField">
+        <mat-label> Country </mat-label>
+        <input matInput formControlName="country" required>
+      </mat-form-field>
+  </div>
+  <div formGroupName="job">
+        <mat-form-field id="jobtypeField">
+            <mat-select placeholder="Job Type" [(value)]="newEmployee.jobType" formControlName="job_typeID" required>
+              <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
+                {{ jobType.placeholder | titlecase }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  </div>
+        <mat-form-field appearance="standard" id="hourlywageField">
           <mat-label>Hourly Wage</mat-label>
-          <input matInput>
+          <input matInput formControlName="hourly_wage" required>
         </mat-form-field>
         
-       
-        <mat-form-field>
-          <mat-select placeholder="Job Type" [(value)]="newEmployee.jobType" formControlName="jobType">
-            <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
-              {{ jobType.placeholder | titlecase }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        
+          <mat-form-field id="skillField">
+              <mat-select placeholder="Skills" [(value)]="newEmployee.skill" formControlName="skillList" multiple required>
+                <mat-option *ngFor="let skill of skillItems" [(value)]="skill.value">
+                  {{ skill.placeholder | titlecase }}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+
+                  
+
+            <button type="submit" class="mat-raised-button" id="postButton">Submit</button>
+            </form>
       </div>
           
      
     </div>
+    <p>
+      Form Status: {{ employeeForm.status }}
+    </p>
 
-    <button type="submit" class="btn btn-success">Submit</button>
 
     <!-- Gegevens Werkgever -->
     <div class="col-10 col-md-5 row">

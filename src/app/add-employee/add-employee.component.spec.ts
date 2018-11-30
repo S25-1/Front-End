@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddEmployeeComponent } from './add-employee.component';
 import { UploadPictureComponent } from './upload-picture/upload-picture.component';
 import { MaterialModule } from '../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AddemployeeComponent', () => {
   let component: AddEmployeeComponent;
@@ -16,6 +18,9 @@ describe('AddemployeeComponent', () => {
       ],
       imports: [
         MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
       ],
     })
     .compileComponents();

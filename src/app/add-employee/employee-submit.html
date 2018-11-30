@@ -1,0 +1,6 @@
+<div class="wrapper">
+        <mat-spinner *ngIf="data.submit && !data.posted" [diameter]="30"></mat-spinner>
+        <mat-icon *ngIf="!data.submit">close</mat-icon>
+        <mat-icon *ngIf="data.posted">check</mat-icon>
+        <span>{{ data.message }}</span>
+    </div>

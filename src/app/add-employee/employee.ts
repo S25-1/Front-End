@@ -1,4 +1,3 @@
-
 export class Employee {
     userType: string;
     name: string;
@@ -6,10 +5,14 @@ export class Employee {
     password: string;
     dateOfBirth: Date;
     phoneNumber: string;
-    jobType: JobType;
-    hourly_Wage: string;
-    Skills: Skill[];
-
+    job_typeID: JobType;
+    hourly_Wage: number;
+    skillList: Skill[];
+    postal_code: string;
+    street_name: string;
+    house_number: number;
+    city: string;
+    country: string;
     getJobTypes(): JobType[] {
       return JSON.parse(`
         { "jobTypes" : [

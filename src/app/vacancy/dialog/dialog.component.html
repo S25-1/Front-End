@@ -1,37 +1,37 @@
-<style>
-.capitalize {
-    text-transform: capitalize;
- }
-  .left { width: 39%; float:left; text-align:left; }
-  .right { width: 39%; float:right; text-align:left;  }
-  .container { margin:auto; display:inline;}
- </style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+ rel="stylesheet">
 <div class="header">
+    <h2>Accept Vacancy?</h2>
+    <!-- <a onclick=""><i class="material-icons">highlight_off</i></a> -->
 </div>
 <div>
-  <h4> {{ data.Name }} </h4>
+  <p> {{ data.Name }} </p>
+  <div class='date'>
+    <i class="material-icons">{{ this.dateIcon }}</i>
+    {{ this.dateString }} 
+  </div>
+  <br/>
+
   <div class='container'>
-  <div class='left'>Start Date: {{ data.StartDate | date:'dd-MM-yy' }}<br/>
-    Start Time: {{ data.StartDate | date:'hh:mm' }}
-  </div>
-  <div class='right'>
-  End Date: {{ data.EndDate | date:'dd-MM-yy' }}<br/>
-  End Time: {{ data.EndDate | date:'hh:mm' }}
-  </div><br/><br/>
-  <p>Required skills: </p>
-  <mat-chip-list>
+    <div class='time'>
+     <i class="material-icons" style="vertical-align: center;">schedule</i>
+     {{ data.StartDate | date:'hh:mm' }} - {{ data.EndDate | date:'hh:mm' }}
+    </div>
+    <br/>
+
+    <p>Required skills: </p>
+    <mat-chip-list>
       <div *ngFor="let skillItem of data.SkillList">
-          <mat-chip class="capitalize">{{ skillItem.SkillTypeName }}</mat-chip>
+        <mat-chip class="capitalize">{{ skillItem.SkillTypeName }}</mat-chip>
       </div>
-  </mat-chip-list>
-  <p> Required work experience: {{ data.Experience }} Months</p>
-</div>
-<div>
- <!-- <form>  -->
-  <!-- <input placeholder="User ID" type="number" id="userId" required> -->
-  <div class="reply-buttons-flex">
-    <!-- <button class="reply-button mat-button-reject" mat-raised-button (click)="submitApplication(false)">Reject</button> -->
-    <button class="reply-button mat mat-button-accept" mat-raised-button (click)="submitApplication(true)">Apply</button> 
+    </mat-chip-list>
+    <p> Required work experience: {{ data.Experience }} Months</p>
   </div>
-  <!-- </form>  -->
+
+  <div>  
+    <div class="reply-buttons-flex">
+      <button class="reply-button mat" mat-button color="primary" (click)="closeDialog()">CANCEL</button>
+      <button class="reply-button mat" mat-raised-button color="primary" (click)="submitApplication(true)">ACCEPT</button> 
+    </div>
+  </div>
 </div>

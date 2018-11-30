@@ -38,9 +38,6 @@ h1.nav-app-name {
 }
 
 .container {
-  // padding-top: 15px;
-}
-.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,4 +51,8 @@ h1.nav-app-name {
       width: 90vw;
       margin: 15px 5vw;
   }
+}
+
+.mat-list-item-content mat-icon,span {
+  padding: 0 10px !important;
 }

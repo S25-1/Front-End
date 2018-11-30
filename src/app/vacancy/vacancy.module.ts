@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VacancyComponent } from './vacancy.component';
 import { MaterialModule } from '../material/material.module';
 import { DialogComponent } from './dialog/dialog.component';
+import { VacancyService } from './vacancy.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,9 @@ import { DialogComponent } from './dialog/dialog.component';
   ],
   entryComponents: [
     DialogComponent,
+  ],
+  providers: [
+    VacancyService,
   ],
 })
 export class VacancyModule { }

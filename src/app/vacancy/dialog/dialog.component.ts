@@ -19,10 +19,45 @@ export class DialogComponent implements OnInit {
 
   userID: string = '2';
   vacancyID: string;
+  statusID: string = '1';
+
+  dateIcon: string = 'date_range';
+
+  startDate;
+  endDate;
+  dateString: string = '';
+
+  optionsDayMonthYear = { year: 'numeric', month: 'long', day: 'numeric' };
+  optionsMonthYear = { year: 'numeric', month: 'long' };
+  optionsDayMonth = { month: 'long', day: 'numeric' };
+  optionsDay = { day: 'numeric' };
 
   ngOnInit() {
     console.log(this.data);
     this.vacancyID = this.data.VacancyID;
+    this.startDate = new Date(this.data.StartDate);
+    this.endDate = new Date(this.data.EndDate);
+    this.getDateSpan();
+  }
+
+  getDateSpan() {
+    if (this.startDate.getFullYear() === this.endDate.getFullYear()) {
+      if (this.startDate.getMonth() === this.endDate.getMonth()) {
+        if (this.startDate.getDay() === this.endDate.getDay()) {
+          this.dateString += this.startDate.toLocaleDateString('en-NL', this.optionsDayMonthYear);
+          this.dateIcon = 'today';
+        } else {
+          this.dateString += `${this.startDate.toLocaleDateString('en-NL', this.optionsDay)} -
+           ${this.endDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)}`;
+        }
+      } else {
+        this.dateString += `${this.startDate.toLocaleDateString('en-NL', this.optionsDayMonth)} -
+         ${this.endDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)}`;
+      }
+    } else {
+      this.dateString = `${this.startDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)} -
+       ${this.endDate.toLocaleDateString('en-NL', this.optionsDayMonthYear)}`;
+    }
   }
 
   submitApplication(accepted: boolean) {
@@ -32,7 +67,7 @@ export class DialogComponent implements OnInit {
     let req: VacancyApplication = {
       userID: `${this.userID}`,
       vacancyID: `${this.vacancyID}`,
-      Accepted: `${accepted}`,
+      statusID: `${this.statusID}`,
     };
 
     const httpOptions = {
@@ -52,10 +87,14 @@ export class DialogComponent implements OnInit {
           },
         );
   }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }
 
 interface VacancyApplication {
   userID: string;
   vacancyID: string;
-  Accepted: string;
+  statusID: string;
 }

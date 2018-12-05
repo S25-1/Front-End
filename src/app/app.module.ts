@@ -16,7 +16,7 @@ import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { VacancyModule } from './vacancy/vacancy.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
-
+import { VacancyresponsesModule } from './vacancyresponses/vacancyresponses.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { LoginModule } from './login/login.module';
     AddVacancyModule,
     VacancyModule,
     LoginModule,
+    VacancyresponsesModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   bootstrap: [AppComponent],

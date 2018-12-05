@@ -9,6 +9,7 @@ import { VacancyComponent } from './vacancy/vacancy.component';
 import { LoginComponent } from './login/login.component';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { AddVacancyComponent } from './add-vacancy/add-vacancy.component';
+import { VacancyresponsesComponent } from './vacancyresponses/vacancyresponses.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'vacancy', component: VacancyComponent },
   { path: 'editvacancy', component: EditvacancyComponent },
   { path: 'addvacancy', component: AddVacancyComponent },
+  { path: 'vacancyresponses', component: VacancyresponsesComponent },
 ];
 
 // This list is used for the dashboard and navigation components
@@ -27,6 +29,7 @@ export const NAVITEMS: NavItem[] = [
   { name: 'list vacancies', path: 'vacancy', icon: 'view_list' },
   // { name: 'edit vacancies', path: 'editvacancy', icon: 'insert_comment' },
   { name: 'add vacancies', path: 'addvacancy', icon: 'add_comment' },
+  { name: 'vacancy responses', path: 'vacancyresponses', icon: 'comment' },
 ];
 
 @NgModule({

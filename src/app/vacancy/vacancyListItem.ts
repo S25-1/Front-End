@@ -7,12 +7,14 @@ export interface Vacancy {
   beginDateTime: Date;
   endDateTime: Date;
   minimalExperience: number;
-  requiredSkills: number[];
+  requiredSkills: Skill[];
 }
-// export interface Skill {
-//   skillTypeID: number;
-//   skillTypeName: string;
-// }
+
+export interface Skill {
+  skillTypeID: number;
+  skillTypeName: string;
+}
+
 // AcceptedUserList: []
 // Date_begin: "2018-03-02T10:30:00"
 // Date_end: "2019-03-02T00:00:00"

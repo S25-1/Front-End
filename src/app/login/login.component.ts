@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../services/authentication.service';
+import { NavigationStart, Router, RouterLink } from '@angular/router';
+import { $ } from 'protractor';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +15,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public authService: AuthService,
-    ) { }
-
+    public router: Router,
+    ) {
+  }
   credentialsForm: FormGroup;
 
   ngOnInit() {
@@ -28,6 +32,9 @@ export class LoginComponent implements OnInit {
       this.credentialsForm.value['email'],
       this.credentialsForm.value['password'],
       );
+    if (this.authService.isLoggedIn) {
+      this.router.navigate(['']);
+    }
   }
 
   register() {

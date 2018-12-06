@@ -9,6 +9,7 @@ import { VacancyComponent } from './vacancy/vacancy.component';
 import { LoginComponent } from './login/login.component';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { AddVacancyComponent } from './add-vacancy/add-vacancy.component';
+import { VacancyresponsesComponent } from './vacancyresponses/vacancyresponses.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -17,16 +18,18 @@ const routes: Routes = [
   { path: 'vacancy', component: VacancyComponent },
   { path: 'editvacancy', component: EditvacancyComponent },
   { path: 'addvacancy', component: AddVacancyComponent },
+  { path: 'vacancyresponses', component: VacancyresponsesComponent },
 ];
 
 // This list is used for the dashboard and navigation components
 export const NAVITEMS: NavItem[] = [
   // { name: 'home', path: '', icon: 'home' },
-  { name: 'add employee', path: 'addemployee', icon: 'person_add' },
-  { name: 'login', path: 'login', icon: 'account_circle' },
-  { name: 'list vacancies', path: 'vacancy', icon: 'view_list' },
+  { name: 'add employee', path: 'addemployee', icon: 'person_add', userrole: 'employer' },
+  { name: 'login', path: 'login', icon: 'account_circle', userrole: null },
+  { name: 'list vacancies', path: 'vacancy', icon: 'view_list', userrole:  'employer' },
+  { name: 'list vacancies', path: 'vacancy', icon: 'view_list', userrole:  'employee' },
   // { name: 'edit vacancies', path: 'editvacancy', icon: 'insert_comment' },
-  { name: 'add vacancies', path: 'addvacancy', icon: 'add_comment' },
+  { name: 'add vacancies', path: 'addvacancy', icon: 'add_comment', userrole: 'employer' },
 ];
 
 @NgModule({
@@ -44,4 +47,5 @@ interface NavItem {
   name: string;
   path: string;
   icon: string;
+  userrole: string;
 }

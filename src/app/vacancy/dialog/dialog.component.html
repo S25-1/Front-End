@@ -1,8 +1,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
  rel="stylesheet">
 <div class="header">
-    <h2>Accept Vacancy?</h2>
-    <!-- <a onclick=""><i class="material-icons">highlight_off</i></a> -->
+    <h2 class="title">Accept Vacancy?</h2>
 </div>
 <div>
   <p> {{ data.Name }} </p>
@@ -22,10 +21,10 @@
     <p>Required skills: </p>
     <mat-chip-list>
       <div *ngFor="let skillItem of data.SkillList">
-        <mat-chip class="capitalize">{{ skillItem.SkillTypeName }}</mat-chip>
+        <mat-chip class="capitalize">{{ skillItem.skillTypeName }}</mat-chip>
       </div>
     </mat-chip-list>
-    <p> Required work experience: {{ data.Experience }} Months</p>
+    <p class="work-experience"> Required work experience: {{ data.Experience }} Months</p>
   </div>
 
   <div>  

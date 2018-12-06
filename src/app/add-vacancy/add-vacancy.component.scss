@@ -3,13 +3,6 @@ mat-form-field {
     margin: 10px 15px 10px 15px;
 }
 
-@media (max-width: 700px)
-{
-    mat-form-field {
-        width: 90vw;
-    }
-}
-
 .mat-form-field-flex{
     padding-top: -12px;
 }
@@ -23,9 +16,6 @@ mat-form-field {
     width: 42vw;
 }
 
-// #jobFields{
-//     display: block;
-// }
 
 #dateField{
     display: block;
@@ -48,4 +38,11 @@ mat-form-field {
 
 #postButton{
     margin-left: 15px;
+}
+
+@media (max-width: 700px)
+{
+    mat-form-field {
+        width: 90vw;
+    }
 }

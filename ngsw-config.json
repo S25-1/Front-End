@@ -40,17 +40,6 @@
         "timeout": "10s",
         "strategy": "freshness"
       }
-    },
-    {
-      "name": "internal-pages",
-      "urls": [
-        "!/**/*.*"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "2h",
-        "strategy": "performance"
-      }
     }
   ]
 }

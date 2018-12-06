@@ -1,31 +1,86 @@
 // Display form fields vertically 
-.mat-form-field {
-    display: unset;
-}
-
-#jobFields{
-     display: block;
-}
-
 mat-form-field {
-    width: 20vw;
     margin: 10px 15px 10px 15px;
+    width:20vw;
 }
 
+.upload-picture-input-devider  {
+    width: 5vw;
+}
 
-// At medium screen width
-@media (min-width: 720px) {
-    .upload-picture-input-devider  {
-        width: 5vw;
+    .mat-form-field-flex{
+        padding-top: -12px;
+        
     }
 
+.address {
+display:block;
+width: 42vw;
+}
+    .mat-form-field-infix{
+        border-top: -13.5px;
+    }
+
+    #nameField{
+        display: block;
+        width: 42vw;
+    }
+
+    #postButton{
+        margin-left: 15px;
+    }
+    
+    #skillField{
+        display: block;
+        width: 42vw;
+    }
+    #emailField{
+        display: block;
+        width: 42vw;
+    }
+  #passwordField{
+    display: block;
+    width: 42vw;
+  }
+  #dateOfBirthField{
+    display: block;
+    width: 42vw;
+  }
+#phonenumberField{
+    display: block;
+    width: 42vw;
+  }
+  
+  #countryField{
+    display: block;
+    width: 42vw;
+  }
+
+  #jobtypeField{
+    display: block;
+    width: 42vw;
+  }
+
+  #hourlywageField{
+    display: block;
+    width: 42vw;
+  }
+
+  
+  #cityField{
+    display: block;
+    width: 42vw;
+  }
+
+  #postalcodeField{
+    display: block;
+    width: 42vw;
+  }
+
+// At small screen width
+@media (max-width: 700px) {
+ 
     mat-form-field {
         width: 90vw;
     }
-    
-}
-  
-
-form {
-    width: 90vw;
 }

@@ -6,7 +6,6 @@
       <input matInput name="name" formControlName="name" required>
     </mat-form-field>
 
-    <!-- <div id="jobFields"> -->
       <mat-form-field>
         <mat-select placeholder="Job Type" [(value)]="newVacancy.jobType" formControlName="jobType" required>
           <mat-option *ngFor="let jobType of jobTypeItems" [(value)]="jobType.value">
@@ -19,7 +18,7 @@
         <mat-label>Description of vacancy</mat-label>
         <textarea matInput name="description" formControlName="description" required></textarea>
       </mat-form-field>
-    <!-- </div> -->
+  
     
     <mat-form-field id="dateField">
       <input matInput [matDatepicker]="vacancyBeginDate" placeholder="Requested Date" [min]="minDate" formControlName="beginDate" required>

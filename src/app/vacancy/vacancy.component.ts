@@ -27,4 +27,7 @@ export class VacancyComponent implements OnInit{
       autoFocus: false,
     });
   }
+  // dialogRef.afterClosed().subscribe((result) => {
+  //   console.log(result);
+  // });
 }

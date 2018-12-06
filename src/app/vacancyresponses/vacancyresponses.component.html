@@ -1,4 +1,4 @@
-<span *ngIf="acceptedusers.length !== 0"><h1>Vacancyresponses</h1></span>
+<span *ngIf="acceptedusers.length !== 0"><h1>Vacancy Responses</h1></span>
 <div *ngIf="acceptedusers.length !== 0" class="grid-container"> 
   <a *ngFor="let accepteduser of acceptedusers" class="papers">
     <div class="top-div">
@@ -18,6 +18,6 @@
 </div>
 
 <div class="loading-screen" *ngIf="acceptedusers.length == 0">
-  <h2>Loading acceptedusers</h2>
+  <h2>Loading responses</h2>
   <mat-spinner></mat-spinner>
 </div>

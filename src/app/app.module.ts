@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
 
 import { AuthInterceptor } from './services/AuthInterceptor';
+import { VacancyresponsesModule } from './vacancyresponses/vacancyresponses.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AuthInterceptor } from './services/AuthInterceptor';
     AddVacancyModule,
     VacancyModule,
     LoginModule,
+    VacancyresponsesModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   bootstrap: [AppComponent],

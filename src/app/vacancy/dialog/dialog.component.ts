@@ -61,8 +61,6 @@ export class DialogComponent implements OnInit {
   }
 
   submitApplication(accepted: boolean) {
-    // console.log(this.data);
-
     // All values are sent as a string
     let req: VacancyApplication = {
       userID: `${this.userID}`,
@@ -77,7 +75,7 @@ export class DialogComponent implements OnInit {
     };
 
     this.http.post(
-      `${environment.apiUri}/vacancy/addaccepteduser`, JSON.stringify(req), httpOptions)
+      `${environment.apiUri}/vacancy/addresponse`, JSON.stringify(req), httpOptions)
         .subscribe(
           (data) => {
             console.log('POST Request is successful ', data);

@@ -26,9 +26,5 @@ export class VacancyComponent implements OnInit{
         EndDate: enddate, VacancyID: vacancyid, SkillList: skilllist },
       autoFocus: false,
     });
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log(result);
-    // });
   }
 }

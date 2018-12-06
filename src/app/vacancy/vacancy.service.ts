@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable , of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Vacancy, Skill } from './vacancyListItem';
+import { Vacancy } from './vacancyListItem';
 import { environment } from '../../environments/environment';
 
 @Injectable()

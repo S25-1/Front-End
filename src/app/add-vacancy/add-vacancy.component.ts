@@ -41,7 +41,7 @@ export class AddVacancyComponent implements OnInit {
       minimalExperience: [],
       beginDateTime: [],
       endDateTime: [],
-      userID: ['1'],
+      userID: [localStorage.getItem('user_id')],
     });
   }
 

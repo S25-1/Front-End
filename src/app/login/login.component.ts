@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
       this.credentialsForm.value['password'],
       );
 
-    if (this.authService.isLoggedIn) {
-      this.router.navigate(['/']);
-    }
+    // if (this.authService.isLoggedIn) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   register() {

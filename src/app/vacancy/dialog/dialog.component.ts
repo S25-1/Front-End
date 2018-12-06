@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { environment } from '../../../environments/environment';
 
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -17,6 +19,8 @@ export class DialogComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
+  private jwtHelper = new JwtHelperService();
+
   userID: string = '2';
   vacancyID: string;
   statusID: string = '1';
@@ -26,6 +30,9 @@ export class DialogComponent implements OnInit {
   startDate;
   endDate;
   dateString: string = '';
+
+  decoded;
+  user;
 
   optionsDayMonthYear = { year: 'numeric', month: 'long', day: 'numeric' };
   optionsMonthYear = { year: 'numeric', month: 'long' };
@@ -38,6 +45,14 @@ export class DialogComponent implements OnInit {
     this.startDate = new Date(this.data.StartDate);
     this.endDate = new Date(this.data.EndDate);
     this.getDateSpan();
+    this.getUserEmail();
+  }
+
+  getUserEmail() {
+    this.decoded = this.jwtHelper.decodeToken(localStorage.id_token);
+    console.log(this.decoded);
+    this.user = JSON.parse(`'${this.decoded}'`);
+    console.log(this.user.sub);
   }
 
   getDateSpan() {

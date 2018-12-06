@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.credentialsForm = this.formBuilder.group({
-      email: [{ value: 'something@mail.com', disabled: this.authService.isLoggedIn() }],
-      password: [{ value: 'sexyAnd@securePass12', disabled: this.authService.isLoggedIn() }],
+      email: [{ disabled: this.authService.isLoggedIn() }],
+      password: [{ disabled: this.authService.isLoggedIn() }],
     });
   }
 

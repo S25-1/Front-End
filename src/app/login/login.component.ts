@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,9 +31,9 @@ export class LoginComponent implements OnInit {
       this.credentialsForm.value['password'],
       );
 
-    if (this.authService.isLoggedIn) {
-      this.router.navigate(['/']);
-    }
+    // if (this.authService.isLoggedIn) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   register() {

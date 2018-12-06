@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VacancyresponseService } from './vacancyresponses.service';
 
 @Component({
   selector: 'app-vacancyresponses',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VacancyresponsesComponent implements OnInit {
 
-  constructor() { }
+  public acceptedusers = [];
+  constructor(private vacancyresponseService: VacancyresponseService) {}
 
   ngOnInit() {
+    this.vacancyresponseService.getAcceptedUser()
+      .subscribe(data => this.acceptedusers = data);
   }
 
 }

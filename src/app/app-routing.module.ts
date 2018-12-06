@@ -30,6 +30,8 @@ export const NAVITEMS: NavItem[] = [
   { name: 'list vacancies', path: 'vacancy', icon: 'view_list', userrole:  'employee' },
   // { name: 'edit vacancies', path: 'editvacancy', icon: 'insert_comment' },
   { name: 'add vacancies', path: 'addvacancy', icon: 'add_comment', userrole: 'employer' },
+  { name: 'vacancy responses', path: 'vacancyresponses',
+    icon: 'view_list', userrole: 'employer' },
 ];
 
 @NgModule({

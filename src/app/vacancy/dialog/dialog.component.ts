@@ -21,7 +21,7 @@ export class DialogComponent implements OnInit {
 
   private jwtHelper = new JwtHelperService();
 
-  userID: string = '2';
+  userID: string;
   vacancyID: string;
   statusID: string = '1';
 
@@ -30,9 +30,6 @@ export class DialogComponent implements OnInit {
   startDate;
   endDate;
   dateString: string = '';
-
-  decoded;
-  user;
 
   optionsDayMonthYear = { year: 'numeric', month: 'long', day: 'numeric' };
   optionsMonthYear = { year: 'numeric', month: 'long' };
@@ -45,14 +42,10 @@ export class DialogComponent implements OnInit {
     this.startDate = new Date(this.data.StartDate);
     this.endDate = new Date(this.data.EndDate);
     this.getDateSpan();
-    this.getUserEmail();
   }
 
-  getUserEmail() {
-    this.decoded = this.jwtHelper.decodeToken(localStorage.id_token);
-    console.log(this.decoded);
-    this.user = JSON.parse(`'${this.decoded}'`);
-    console.log(this.user.sub);
+  getUserID() {
+    this.userID = localStorage.getItem('user_id');
   }
 
   getDateSpan() {
@@ -76,6 +69,8 @@ export class DialogComponent implements OnInit {
   }
 
   submitApplication(accepted: boolean) {
+    this.getUserID();
+
     // All values are sent as a string
     let req: VacancyApplication = {
       userID: `${this.userID}`,
@@ -94,6 +89,7 @@ export class DialogComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log('POST Request is successful ', data);
+            this.closeDialog();
           },
           (error) => {
             console.log('Error', error);

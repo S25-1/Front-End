@@ -28,6 +28,7 @@ export const NAVITEMS: NavItem[] = [
   { name: 'login', path: 'login', icon: 'account_circle', userrole: null },
   { name: 'list vacancies', path: 'vacancy', icon: 'view_list', userrole:  'employer' },
   { name: 'list vacancies', path: 'vacancy', icon: 'view_list', userrole:  'employee' },
+  { name: 'vacancy responses', path: 'vacancyresponses', icon: 'comment', userrole: 'employer' },
   // { name: 'edit vacancies', path: 'editvacancy', icon: 'insert_comment' },
   { name: 'add vacancies', path: 'addvacancy', icon: 'add_comment', userrole: 'employer' },
 ];

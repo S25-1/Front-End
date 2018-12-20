@@ -15,7 +15,7 @@ import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { VacancyModule } from './vacancy/vacancy.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
-
+import { AccountModule } from './account/account.module';
 import { AuthInterceptor } from './services/AuthInterceptor';
 import { VacancyresponsesModule } from './vacancyresponses/vacancyresponses.module';
 
@@ -36,6 +36,7 @@ import { VacancyresponsesModule } from './vacancyresponses/vacancyresponses.modu
     AddVacancyModule,
     VacancyModule,
     LoginModule,
+    AccountModule,
     VacancyresponsesModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

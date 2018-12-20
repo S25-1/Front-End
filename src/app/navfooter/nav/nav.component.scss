@@ -37,6 +37,14 @@ h1.nav-app-name {
   margin-left: 16px; //padding of toolbar to keep hamburger styling consitent
 }
 
+.nav-filler{
+  flex: 1 1 auto;
+}
+.user-info-btn {
+  display: flex;
+  align-items: right;
+}
+
 .container {
   display: flex;
   justify-content: center;

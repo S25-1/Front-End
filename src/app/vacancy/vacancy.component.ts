@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { VacancyService } from './vacancy.service';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 // import { VACANCYLIST } from './vacancyList';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -9,18 +9,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-vacancy',
+  providers:[VacancyService],
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.scss'],
+  template: `
+  <h2>Vacatures</h2>
+  <ul *ngFor="let vacancy of vacancies">
+    <li> {{ vacancy.Name }}</li>
+    <li> {{ vacancy.Description }}</li>
+  </ul>
+`
 })
 export class VacancyComponent implements OnInit{
   // vacancylist = VACANCYLIST;
   public vacancies = [];
 
-  constructor(public dialog: MatDialog, private vacancyService: VacancyService) {}
+  constructor(public dialog: MatDialog, private vacancyService: VacancyService) { }
 
   ngOnInit() {
     this.vacancyService.getVacancy()
-      .subscribe(data => this.vacancies = data);
+      .subscribe(resVacancies => this.vacancies = resVacancies);
   }
 
   openDialog(job, date, experience): void {

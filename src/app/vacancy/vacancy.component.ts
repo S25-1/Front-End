@@ -7,13 +7,6 @@ import { DialogComponent } from './dialog/dialog.component';
   selector: 'vacancy',
   templateUrl: './vacancy.component.html',
   styleUrls: ['./vacancy.component.scss'],
-  template: `
-  <h2>Vacatures</h2>
-  <ul *ngFor="let vacancy of vacancies">
-    <li> {{ vacancy.Name }}</li>
-    <li> {{ vacancy.Description }}</li>
-  </ul>
-`
 })
 export class VacancyComponent implements OnInit{
   // vacancylist = VACANCYLIST;

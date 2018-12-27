@@ -1,18 +1,16 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { AppComponent } from 'src/app/app.component';
-
-import { NAVLIST } from './navList';
-// import { NavListItem } from './navListItem';
+import { NAVITEMS } from '../../app-routing.module';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
-export class NavComponent {
-  navlist = NAVLIST;
-
+export class NavComponent implements OnInit {
+  // Set as property so it can be used in html file
+  navItems = NAVITEMS;
   // Import global vars
   newAppComponent: AppComponent = new AppComponent();
 
@@ -25,5 +23,11 @@ export class NavComponent {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
+  }
+  public userrole : string;
+
+  ngOnInit() {
+    this.userrole = localStorage.getItem('role');
+    console.log(this.userrole);
   }
 }

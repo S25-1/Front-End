@@ -1,21 +1,27 @@
 export interface Vacancy {
-  // vacancyID: number;
-  // userID: number;
-  // Name: string;
-  // requiredJob: number;
-  // reqCompetence: [{skillTypeID: number, skillTypeName: string}];
-  // description: string;
-  // dateBegin: string;
-  // dateEnd: string;
-  // minMonthsExperience: number;
-  Date_begin: Date;
-  Date_end: Date;
-  Description: string;
-  Job: [{Job_typeID: number, Job_name: string}];
-  MinExperience: number;
-  Name: string;
-  SkillList: [{SkillTypeID: number, SkillTypeName: string}];
-  UserID: number;
-  VacancyID: number;
+  vacancyID: number;
+  userID: number;
+  name: string;
+  jobType: number;
+  description: string;
+  beginDateTime: Date;
+  endDateTime: Date;
+  minimalExperience: number;
+  requiredSkills: Skill[];
 }
 
+export interface Skill {
+  skillTypeID: number;
+  skillTypeName: string;
+}
+
+// AcceptedUserList: []
+// Date_begin: "2018-03-02T10:30:00"
+// Date_end: "2019-03-02T00:00:00"
+// Description: "Beschrijving van vacature"
+// Job: {Job_typeID: 1, Job_name: "Vakkenvuller"}
+// MinExperience: 8
+// Name: "Vakkenvuller gezocht"
+// SkillList: [{SkillTypeID: 1, SkillTypeName: "Vakkenvullen"}]
+// UserID: 1
+// VacancyID: 1

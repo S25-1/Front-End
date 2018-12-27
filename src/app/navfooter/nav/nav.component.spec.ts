@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavComponent } from './nav.component';
+import { MaterialModule } from 'src/app/material/material.module';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AddEmployeeModule } from 'src/app/add-employee/add-employee.module';
+import { DashboardModule } from 'src/app/dashboard/dashboard.module';
+import { AppModule } from 'src/app/app.module';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('NavbarComponent', () => {
   let component: NavComponent;
@@ -8,7 +14,18 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NavComponent],
+      declarations: [
+      ],
+      imports: [
+        MaterialModule,
+        AppRoutingModule,
+        AddEmployeeModule,
+        DashboardModule,
+        AppModule,
+      ],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' },
+      ],
     })
     .compileComponents();
   }));

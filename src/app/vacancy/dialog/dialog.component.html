@@ -1,0 +1,36 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+ rel="stylesheet">
+<div class="header">
+    <h2 class="title">Accept Vacancy?</h2>
+</div>
+<div>
+  <p> {{ data.Name }} </p>
+  <div class='date'>
+    <i class="material-icons">{{ this.dateIcon }}</i>
+    {{ this.dateString }} 
+  </div>
+  <br/>
+
+  <div class='container'>
+    <div class='time'>
+     <i class="material-icons" style="vertical-align: center;">schedule</i>
+     {{ data.StartDate | date:'hh:mm' }} - {{ data.EndDate | date:'hh:mm' }}
+    </div>
+    <br/>
+
+    <p>Required skills: </p>
+    <mat-chip-list>
+      <div *ngFor="let skillItem of data.SkillList">
+        <mat-chip class="capitalize">{{ skillItem.skillTypeName }}</mat-chip>
+      </div>
+    </mat-chip-list>
+    <p class="work-experience"> Required work experience: {{ data.Experience }} Months</p>
+  </div>
+
+  <div>  
+    <div class="reply-buttons-flex">
+      <button class="reply-button mat" mat-button color="primary" (click)="closeDialog()">CANCEL</button>
+      <button class="reply-button mat" mat-raised-button color="primary" (click)="submitApplication(true)">ACCEPT</button> 
+    </div>
+  </div>
+</div>

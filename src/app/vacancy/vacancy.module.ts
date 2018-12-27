@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VacancyComponent, VacancyDialog } from './vacancy.component';
+import { VacancyComponent } from './vacancy.component';
 import { MaterialModule } from '../material/material.module';
+import { DialogComponent } from './dialog/dialog.component';
+import { VacancyService } from './vacancy.service';
 
 @NgModule({
   imports: [
@@ -10,13 +12,16 @@ import { MaterialModule } from '../material/material.module';
   ],
   declarations: [
     VacancyComponent,
-    VacancyDialog,
+    DialogComponent,
   ],
   exports: [
     VacancyComponent,
   ],
   entryComponents: [
-    VacancyDialog,
+    DialogComponent,
+  ],
+  providers: [
+    VacancyService,
   ],
 })
 export class VacancyModule { }

@@ -1,82 +1,18 @@
 <div class="grid-container">
-    <a routerLink="/addemployee" class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\add_image.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Werknemer toevoegen
-      </span>  
-    </div>
-  </a>
-  <a routerLink="/" class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\vacature.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Vacatures
-      </span>
-    </div>
-  </a>
-  <div class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\reactie.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Reactie Werknemers
-      </span>
-    </div>
-  </div>
-  <a routerLink="/vacancy" class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\vacature.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Vacatures Weergeven
-      </span>
-    </div>
-  </a>
-  <a  class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\newrelease.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Coming soon
-      </span>
-    </div>
-  </a>
-  <a  class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\newrelease.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Coming soon
-      </span>
-    </div>
-  </a>
-  <a  class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\newrelease.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Coming soon
-      </span>
-    </div>
-  </a>
-  <a class="papers" >
-    <div class="top-div">
-    <img class="image" src="\assets\dashboard_img\newrelease.svg">
-    </div>
-    <div class="bottom-div">
-      <span>
-        Coming soon
-      </span>
-    </div>
-  </a>
+  <ng-container *ngFor="let navItem of navItems">
+    <!-- Don't paste home element on dashboard-->
+    <a *ngIf="userrole === navItem.userrole"
+      class="papers"
+      routerLink="{{ navItem.path }}"
+    >
+      <div class="top-div">
+        <mat-icon>{{ navItem.icon }}</mat-icon>
+      </div>
+      <div class="bottom-div">
+        <span>
+          {{ navItem.name | titlecase }}
+        </span>  
+      </div>
+    </a>
+  </ng-container>
 </div>

@@ -13,7 +13,16 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a *ngFor="let navItem of navlist" mat-list-item routerLink="{{ navItem.url }}" >{{ navItem.name }}</a>
+        <ng-container *ngFor="let navItem of navItems" >
+          <a 
+            mat-list-item 
+            *ngIf="userrole === navItem.userrole"
+            routerLink="{{ navItem.path }}"
+            class="nav-list-item">
+            <mat-icon>{{ navItem.icon }}</mat-icon>
+            <span>{{ navItem.name | titlecase }}</span>
+          </a>
+        </ng-container>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

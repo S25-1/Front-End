@@ -8,6 +8,11 @@ import 'hammerjs';
 
 if (environment.production) {
   enableProdMode();
+
+  // Disable console log in production
+  if (window) {
+    window.console.log = () => {};
+  }
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)

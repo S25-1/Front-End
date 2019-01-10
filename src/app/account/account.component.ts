@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AccountService } from './account.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { AccountInfo } from './accountListItem';
 
 @Component({
   selector: 'app-account',
@@ -17,8 +18,9 @@ export class AccountComponent implements OnInit {
   ngOnInit() {
     this.userId = localStorage.getItem('user_id');
     this.accountService.getAccountInfo(this.userId)
-    .subscribe(data => this.accountInfo = data,
-               err => console.log('HTTP Error', err));
-    console.log(this.accountInfo);
+    .subscribe(data => {
+      this.accountInfo = data;
+      console.log(this.accountInfo);
+    });
   }
 }

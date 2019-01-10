@@ -1,7 +1,10 @@
 <h1>Account<h1>
 
-
+<div>
+  
+</div>
 <mat-form-field appearance="standard" id="emailField">
   <mat-label>Email</mat-label>
-  <input matInput type="email" formControlName="email" required>
+  <input matInput type="email" formControlName="email" disabled value="{{accountInfo.userEmail}}">
 </mat-form-field>
+

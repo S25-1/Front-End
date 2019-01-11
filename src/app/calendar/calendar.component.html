@@ -1,0 +1,21 @@
+<div *ngFor="let vacancy of vacancies">
+    <div class="vacancy-wrapper">
+        <span class="header">
+            <h1>{{ vacancy.vacancyName }}</h1>
+            <span>{{ vacancy.vacancyJobName }}</span>
+        </span>
+        <b>Description:</b>
+        <p>{{ vacancy.vacancyDescription }}</p>
+
+        <span>
+            <!-- <mat-icon>access_time</mat-icon> -->
+            <div>
+                <b>Begin Date: </b>
+                <span>{{ vacancy.vacancyDateBegin | date:'M/d/yy H:mm:ss' }}</span>
+                <br>
+                <b>End Date: </b>
+                <span>{{ vacancy.vacancyDateEnd | date:'M/d/yy H:mm:ss' }}</span>
+            </div>
+        </span>
+    </div>
+</div>

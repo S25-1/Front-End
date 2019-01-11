@@ -19,6 +19,7 @@ import { UserresponsesModule } from './userresponses/userresponses.module';
 
 import { AuthInterceptor } from './services/AuthInterceptor';
 import { VacancyresponsesModule } from './vacancyresponses/vacancyresponses.module';
+import { CalendarModule } from './calendar/calendar.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { VacancyresponsesModule } from './vacancyresponses/vacancyresponses.modu
     VacancyModule,
     LoginModule,
     VacancyresponsesModule,
+    CalendarModule,
     UserresponsesModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

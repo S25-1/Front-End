@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { EditvacancyComponent } from './editvacancy/editvacancy.component';
 import { AddVacancyComponent } from './add-vacancy/add-vacancy.component';
 import { VacancyresponsesComponent } from './vacancyresponses/vacancyresponses.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'editvacancy', component: EditvacancyComponent },
   { path: 'addvacancy', component: AddVacancyComponent },
   { path: 'vacancyresponses', component: VacancyresponsesComponent },
+  { path: 'calendar', component: CalendarComponent },
 ];
 
 // This list is used for the dashboard and navigation components
@@ -26,8 +28,11 @@ export const NAVITEMS: NavItem[] = [
   // { name: 'home', path: '', icon: 'home' },
   { name: 'add employee', path: 'addemployee', icon: 'person_add', userrole: 'employer' },
   { name: 'login', path: 'login', icon: 'account_circle', userrole: null },
+  { name: 'login', path: 'login', icon: 'account_circle', userrole: 'employer' },
+  { name: 'login', path: 'login', icon: 'account_circle', userrole: 'employee' },
   { name: 'list vacancies', path: 'vacancy', icon: 'view_list', userrole:  'employer' },
   { name: 'list vacancies', path: 'vacancy', icon: 'view_list', userrole:  'employee' },
+  { name: 'your calendar', path: 'calendar', icon: 'calendar_today', userrole:  'employee' },
   { name: 'vacancy responses', path: 'vacancyresponses', icon: 'comment', userrole: 'employer' },
   // { name: 'edit vacancies', path: 'editvacancy', icon: 'insert_comment' },
   { name: 'add vacancies', path: 'addvacancy', icon: 'add_comment', userrole: 'employer' },

@@ -4,15 +4,14 @@
     <div class="top-div">
       <img class="image" src="/assets/calender.svg">
       <span>
-        <b>{{ accepteduser.userID }}</b>
+        <b>{{ accepteduser.vacancyName}} {{ accepteduser.userStatusName}}</b>
       </span>
       <span style="text-align: right;">
-        {{ accepteduser.vacancyID }}
+{{ accepteduser.userName}}
       </span>
     </div>
     <div class="bottom-div">
-      <span>{{ accepteduser.statusID }}</span>   
-    <!-- <span *ngFor="let skillItem of vacancy.SkillList">{{ skillItem.SkillTypeName }}</span> -->
+      <span>{{ accepteduser.vacancyDateBegin  | date: 'dd/MM/yyyy HH:mm'  }} - {{ accepteduser.vacancyDateEnd | date: 'dd/MM/yyyy HH:mm'  }} </span>   
     </div>
   </a>  
 </div>

@@ -16,4 +16,12 @@ export class VacancyresponsesComponent implements OnInit {
       .subscribe(data => this.acceptedusers = data);
   }
 
+  private mergeDates(dateValue: Date): string {
+    const returnValue = dateValue.toISOString()
+    .replace(/[TZ]/g, ' ');                // Replace T an Z with spaces to make it MySQL parsable
+    return returnValue;
+  }
+
+
+
 }

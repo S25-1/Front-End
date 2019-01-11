@@ -1,9 +1,9 @@
 <div class="nav-container" [class.nav-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="nav-toolbar">
+  <mat-toolbar color="primary" class="nav-toolbar" background-color="red">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
      <a id="nav-title-text" mat-button routerLink=''>
        <h1 class="nav-app-name" >
-          {{ newAppComponent.title }}
+          CGI - Workmatch
         </h1>
       </a> 
   </mat-toolbar>

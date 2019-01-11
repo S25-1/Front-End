@@ -22,7 +22,7 @@ export class CalendarComponent implements OnInit {
   getAcceptedVacancies(): Observable<CalendarVacancy[]> {
     // Request data and return as observable
     return this.http.get<CalendarVacancy[]>(
-      `${environment.apiUri}/vacancy/responses/employee/${localStorage.getItem('user_id')}`,
+      `${environment.apiUri}/vacancy/responses/${localStorage.getItem('user_id')}/2`,
       // `${environment.apiUri}/vacancy/responses/${localStorage.getItem('user_id')}/2`,
       ).pipe();
   }

@@ -23,7 +23,7 @@ export class DialogComponent implements OnInit {
 
   userID: string;
   vacancyID: string;
-  statusID: string = '1';
+  userstatusID: string = '2';
 
   dateIcon: string = 'date_range';
 
@@ -75,7 +75,7 @@ export class DialogComponent implements OnInit {
     let req: VacancyApplication = {
       userID: `${this.userID}`,
       vacancyID: `${this.vacancyID}`,
-      statusID: `${this.statusID}`,
+      userstatusID: `${this.userstatusID}`,
     };
 
     const httpOptions = {
@@ -89,6 +89,7 @@ export class DialogComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log('POST Request is successful ', data);
+            console.log(JSON.stringify(req));
             this.closeDialog();
           },
           (error) => {
@@ -105,5 +106,5 @@ export class DialogComponent implements OnInit {
 interface VacancyApplication {
   userID: string;
   vacancyID: string;
-  statusID: string;
+  userstatusID: string;
 }

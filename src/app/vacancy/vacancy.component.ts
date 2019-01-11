@@ -15,7 +15,7 @@ export class VacancyComponent implements OnInit{
 
   ngOnInit() {
     this.vacancyService.getVacancy()
-      .subscribe(data => this.vacancies = data);
+      .subscribe(resVacancies => this.vacancies = resVacancies);
   }
 
   openDialog(name, startdate, experience, enddate, vacancyid, skilllist): void {
